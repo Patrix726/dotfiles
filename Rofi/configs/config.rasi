@@ -1,0 +1,51 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+/* Main Config 1080p */
+
+@import "~/.config/rofi/master-config.rasi" 
+
+/* ---- Configuration ---- */
+configuration {
+	font: "Fira Code SemiBold 12";
+}
+
+element-text {
+    font:	"Fira Code SemiBold 14";
+}
+/* ---- Window ---- */
+window {
+    width:	50%;
+}
+/* ---- Listview ---- */
+listview {
+  columns: 1;
+  lines: 5;
+  fixed-height:	true;
+}
+
+/* ---- Element ---- */
+element {
+  orientation: horizontal;
+  padding: 10px 5px 10px 5px;
+  spacing: 6px;
+}
+
+element-icon {
+  size: 5%;
+}
+
+element-text {
+  font: "JetBrainsMono Nerd Font SemiBold 10";
+  horizontal-align: 0.5;
+}
+
+//@theme "/usr/share/rofi/themes/android_notification.rasi"
+
+//@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+
+//@theme "/usr/share/rofi/themes/default.rasi"
+
+//@theme "/home/patrix/.local/share/rofi/themes/simple-tokyonight.rasi"
+
+//@theme "/home/patrix/.local/share/rofi/themes/tokyonight.rasi"
+
+@theme "/home/patrix/.local/share/rofi/themes/tokyonight.rasi"
