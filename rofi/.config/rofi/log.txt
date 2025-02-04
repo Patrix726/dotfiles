@@ -1,0 +1,1 @@
+[ { "name": "CPD", "directory": "/home/patrix/Documents/Code/CPD" }, { "name": "webscraper", "directory": "/home/patrix/Documents/Code/Web/webscraper" }, { "name": "spotify_lyrics", "directory": "/home/patrix/Documents/Code/Web/spotify_lyrics" }, { "name": "emr_system", "directory": "/home/patrix/Documents/Code/Web/emr_system" } ]
