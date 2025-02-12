@@ -26,7 +26,7 @@ export SWWW_TRANSITION_TYPE=simple
 INTERVAL=1800
 
 while true; do
-	find "$1" \
+	find "$1" -follow\
 		| while read -r img; do
 			echo "$((RANDOM % 1000)):$img"
 		done \
