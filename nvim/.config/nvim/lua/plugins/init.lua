@@ -41,5 +41,9 @@ return {
     dependencies = "nvzone/volt",
     opts = {},
     cmd = { "Typr", "TyprStats" },
+},
+{ 
+    'ThePrimeagen/vim-be-good',
+    cmd = {"VimBeGood"},
 }
 }
