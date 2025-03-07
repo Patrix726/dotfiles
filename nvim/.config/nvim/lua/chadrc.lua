@@ -5,12 +5,16 @@
 local M = {}
 
 M.ui = {
-	theme = "catppuccin",
+	theme = "tokyodark",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
 	-- },
+}
+
+M.nvdash = {
+  load_on_startup = true,
 }
 
 return M
