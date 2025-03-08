@@ -45,5 +45,6 @@ return {
 {
     'ThePrimeagen/vim-be-good',
     cmd = {"VimBeGood"},
-}
+},
+  { "CRAG666/code_runner.nvim", config = true },
 }
