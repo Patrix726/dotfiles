@@ -43,6 +43,8 @@ alias hot="sudo create_ap wlp2s0 wlp2s0 EDITH jarvis726"
 alias pn="pnpm"
 export PATH=$PATH:$HOME/.spicetify:$HOME/Documents/Scripts:$HOME/.local/bin
 export CODE="$HOME/Documents/Code"
+export CPD="$HOME/Documents/Code/CPD"
+export WEB="$HOME/Documents/Code/Web"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
