@@ -33,7 +33,7 @@ do
 
 output=${output%$'\n'}
 # Start rofi in dmenu mode with custom keybindings
-choice=$(echo -e "$output" | rofi -dmenu -p "Keypress" -kb-custom-1 "Control-Delete")
+choice=$(echo -e "$output" | rofi -i -dmenu -p "Keypress" -kb-custom-1 "Control-Delete")
 exit_code=$?
 if [ $exit_code -eq 1 ]; then
   exit
