@@ -28,6 +28,8 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
+-- require("hardtime").setup()
+
 require('code_runner').setup({
   filetype = {
     java = {

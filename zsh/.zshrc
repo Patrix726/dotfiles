@@ -45,6 +45,7 @@ export PATH=$PATH:$HOME/.spicetify:$HOME/Documents/Scripts:$HOME/.local/bin
 export CODE="$HOME/Documents/Code"
 export CPD="$HOME/Documents/Code/CPD"
 export WEB="$HOME/Documents/Code/Web"
+export SCRIPTS="$HOME/Documents/Scripts"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -56,3 +57,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+cursor() {
+    args=("$@")
+    (nohup ~/Applications/Cursor.AppImage "${args[@]}" --no-sandbox </dev/null >/dev/null 2>&1 &)
+}
+

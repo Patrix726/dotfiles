@@ -3,7 +3,12 @@
 
 # A basic script to detect keypresses in Rofi
 
-user_file="$(eval echo ${1})"
+cursor() {
+    args=("$@")
+    (nohup ~/Applications/Cursor.AppImage "${args[@]}" --no-sandbox </dev/null >/dev/null 2>&1 &)
+}
+
+user_file="$(eval echo ${2})"
 
 if [[ "$user_file" = /* ]]
 then
@@ -51,7 +56,12 @@ elif [ $exit_code -eq 0 ]; then
     dir=$(echo $task | jq -j ".name")
   fi
 
-  coproc bash -c "code $dir"
+  if [[ $1 == "code" ]]; then
+    coproc bash -c "$1 $dir"
+  else
+    coproc cursor $dir
+  fi
+
   exit
 elif [ $exit_code -eq 10 ]; then
   selected="$choice"
