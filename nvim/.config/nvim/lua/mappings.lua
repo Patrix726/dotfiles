@@ -16,5 +16,7 @@ map('n', '<leader>rp', ':RunProject<CR>', { noremap = true, silent = false })
 map('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
 map('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
 map('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
+map('n', 'q', 'b', {desc = "One word back"})
+map('n', 'b', '%', {desc = "Complimenting bracket"})
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
