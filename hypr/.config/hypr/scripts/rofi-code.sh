@@ -28,7 +28,7 @@ do
     continue
   fi        
   if [[ $icon == "null" ]]; then
-    icon="~/.local/share/icons/Reversal-red-dark/apps/scalable/visual-studio-code.svg"
+    icon="/home/patrix/.local/share/icons/Reversal-grey-dark/actions/16/format-text-code.svg"
   fi      
 #  echo -en "${name}\0icon\x1f${icon}\n"
    output+="${name}\0icon\x1f${icon}"

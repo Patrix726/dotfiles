@@ -18,5 +18,6 @@ map('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
 map('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
 map('n', 'q', 'b', {desc = "One word back"})
 map('n', 'b', '%', {desc = "Complimenting bracket"})
+map('n', '<leader>gi', ':Neogit<CR>', {noremap = true, desc = "Open Neogit dashboard"})
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
