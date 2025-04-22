@@ -7,6 +7,8 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", ",", ";", { desc = "Repeat last f or t command"})
 map("n", ":", ",", { desc = "Execute the inverse of the last f or t command"})
+map("n", "H", "^", { desc = "Execute the inverse of the last f or t command"})
+map("n", "L", "$", { desc = "Execute the inverse of the last f or t command"})
 map("n", "U", "<C-r>", { desc = "Redo key"})
 map("i", "jk", "<ESC>")
 map('n', '<leader>rr', ':RunCode<CR>', { noremap = true, silent = false })
