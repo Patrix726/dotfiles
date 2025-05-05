@@ -17,7 +17,7 @@ inputbar {
 
 /* ---- Mainbox ---- */
 mainbox {
-	padding: 0px;
+	padding: 12px;
     children: [ "entry"];
 }
 

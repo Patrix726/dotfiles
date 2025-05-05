@@ -45,6 +45,7 @@ alias subs="subliminal download -l en *.mp4"
 export PATH=$PATH:$HOME/.spicetify:$HOME/Documents/Scripts:$HOME/.local/bin
 export CODE="$HOME/Documents/Code"
 export CPD="$HOME/Documents/Code/CPD"
+export DOT="$HOME/.dotfiles/"
 export WEB="$HOME/Documents/Code/Web"
 export SCRIPTS="$HOME/Documents/Scripts"
 export NVM_DIR="$HOME/.nvm"
