@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR=nvim
 
 ZSH_THEME="xiong-chiamiov-plus"
 
@@ -41,6 +42,7 @@ alias ttp="tt -n 100"
 alias c="wl-copy"
 alias hot="sudo create_ap wlp2s0 wlp2s0 EDITH jarvis726"
 alias pn="pnpm"
+alias yz="yazi"
 alias subs="subliminal download -l en *.mp4"
 export PATH=$PATH:$HOME/.spicetify:$HOME/Documents/Scripts:$HOME/.local/bin
 export CODE="$HOME/Documents/Code"
