@@ -32,7 +32,7 @@ truncation_symbol = "…/"
 "Pictures" = " "
 
 [git_branch]
-symbol = ""
+symbol = ""
 style = "bg:#394260"
 format = '[[ $symbol $branch ](fg:#648ce1 bg:#394260)]($style)'
 
@@ -41,7 +41,7 @@ style = "bg:#394260"
 format = '[[($all_status$ahead_behind )](fg:#648ce1 bg:#394260)]($style)'
 
 [nodejs]
-symbol = " "
+symbol = " "
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#648ce1 bg:#212736)]($style)'
 
