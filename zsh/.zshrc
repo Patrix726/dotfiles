@@ -42,7 +42,6 @@ alias ttp="tt -n 100"
 alias c="wl-copy"
 alias hot="sudo create_ap wlp2s0 wlp2s0 EDITH jarvis726"
 alias pn="pnpm"
-alias yz="yazi"
 alias subs="subliminal download -l en *.mp4"
 export PATH=$PATH:$HOME/.spicetify:$HOME/Documents/Scripts:$HOME/.local/bin
 export CODE="$HOME/Documents/Code"
@@ -68,3 +67,10 @@ cursor() {
     (nohup ~/Applications/Cursor.AppImage "${args[@]}" --no-sandbox </dev/null >/dev/null 2>&1 &)
 }
 
+function yz() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
