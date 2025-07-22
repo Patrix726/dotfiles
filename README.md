@@ -22,10 +22,11 @@ This repository contains my personal dotfiles for a customized and efficient Lin
 
 ## 🎨 Inspiration & Credits
 
-These dotfiles were initially inspired by the following setups:
+The hyprland dotfiles are customized versions of the following setups:
 
-- fccapria/myTokyo
-- JaKooLit/Hyprland-Dots
+- [fccapria/myTokyo](https://github.com/fccapria/myTokyo)
+- [JaKooLit/Hyprland-Dots](https://github.com/JaKooLit/Hyprland-Dots)
+- [Hyde-Project/hyde](https://github.com/Hyde-project/hyde)
 
 A big thanks to the Linux customization community for providing awesome ideas and configurations!
 
@@ -43,7 +44,8 @@ git clone https://github.com/your-username/dotfiles.git ~/.dotfiles
 #### Run the setup script (if available) or manually link files
 ```
 cd ~/.dotfiles
-stow zsh nvim gtk-3.0 gtk-4.0 kitty rofi waybar hyprland mpv wallust dirs
+stow zsh nvim mpv dirs starship # And any other configs you want
+stow hyde # Or stow jakoolit based on your preferred hyprland look
 ```
 ## 🖥 Screenshots
 
