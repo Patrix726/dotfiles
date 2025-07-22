@@ -1,0 +1,9 @@
+# Personal Aliases
+alias ntop="sudo nethogs"
+alias ttp="tt -n 100 -blockcursor"
+alias c="wl-copy"
+alias cl="fc -ln -1 | wl-copy" 
+alias hot="sudo create_ap wlp2s0 wlp2s0 EDITH jarvis726"
+alias pn="pnpm"
+alias nv="nvim"
+alias subs="subliminal download -l en *.mp4"
