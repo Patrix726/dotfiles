@@ -1,0 +1,16 @@
+    "custom/rhythmbox": {
+        "exec": "mediaplayer.py --player rhythmbox",
+        "exec-if": "pgrep rhythmbox",
+        "format": "{}  ",
+        "rotate": ${r_deg},
+        "return-type": "json",
+        "on-click": "playerctl play-pause --player rhythmbox",
+        "on-click-right": "playerctl next --player rhythmbox",
+        "on-click-middle": "playerctl previous --player rhythmbox",
+        "on-scroll-up": "volumecontrol.sh -p rhythmbox i",
+        "on-scroll-down": "volumecontrol.sh -p rhythmbox d",
+        "max-length": 35,
+        "escape": true,
+        "tooltip": true
+    },
+

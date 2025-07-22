@@ -1,0 +1,22 @@
+$HOME/.config/ags/assets/style.css|${ScrDir}/wallbashags.sh
+
+@define-color foreground #<wallbash_txt1>;
+@define-color background #<wallbash_pry1>;
+@define-color cursor #<wallbash_pry4>;
+
+@define-color color0 #<wallbash_1xa1>;
+@define-color color1 #<wallbash_4xa9>;
+@define-color color2 #<wallbash_2xa9>;
+@define-color color3 #<wallbash_3xa9>;
+@define-color color4 #<wallbash_1xa7>;
+@define-color color5 #<wallbash_2xa7>;
+@define-color color6 #<wallbash_3xa7>;
+@define-color color7 #<wallbash_4xa9>;
+@define-color color8 #<wallbash_1xa4>;
+@define-color color9 #<wallbash_4xa8>;
+@define-color color10 #<wallbash_2xa8>;
+@define-color color11 #<wallbash_3xa8>;
+@define-color color12 #<wallbash_1xa7>;
+@define-color color13 #<wallbash_2xa7>;
+@define-color color14 #<wallbash_3xa7>;
+@define-color color15 #<wallbash_4xa8>;

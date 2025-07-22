@@ -9,3 +9,8 @@ rofi/.config/rofi/wallust/colors-rofi.rasi
 waybar/.config/waybar/wallust/colors-waybar.css
 
 mpv/.config/mpv/mpvHistory.log
+
+# Don't push wallpaper and other image files
+*.jpg
+*.png
+*.gif

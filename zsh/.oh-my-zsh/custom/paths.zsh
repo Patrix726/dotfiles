@@ -1,6 +1,6 @@
 # Personal Paths
 PATH=~/.console-ninja/.bin:$PATH
-export PATH=$PATH:$HOME/.spicetify:$HOME/Documents/Scripts:$HOME/.local/bin
+export PATH=$PATH:$HOME/.spicetify:$HOME/Documents/Scripts:$HOME/.local/bin:$HOME/.local/share/bin/hyde-scripts
 export CODE="$HOME/Documents/Code"
 export CPD="$HOME/Documents/Code/CPD"
 export DOT="$HOME/.dotfiles/"

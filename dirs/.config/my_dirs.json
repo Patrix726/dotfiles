@@ -1,1 +1,70 @@
-[ { "name": "CPD", "directory": "/home/patrix/Documents/Code/CPD" }, { "name": "webscraper", "directory": "/home/patrix/Documents/Code/Web/webscraper" }, { "name": "spotify_lyrics", "directory": "/home/patrix/Documents/Code/Web/spotify_lyrics" }, { "name": "emr_system", "directory": "/home/patrix/Documents/Code/Web/emr_system" }, { "name": "MEmo_Mobile", "directory": "/home/patrix/Documents/Code/Web/MEmo_Mobile" }, { "name": "CGA-Project", "directory": "/home/patrix/Documents/Code/Web/CGA-Project" }, { "name": "MEmo_backend", "directory": "/home/patrix/Documents/Code/Web/MEmo_backend" }, { "name": "E-Learning", "directory": "/home/patrix/Documents/Code/Web/E-Learning" } ]
+[
+  {
+    "name": "CPD",
+    "directory": "/home/patrix/Documents/Code/CPD"
+  },
+  {
+    "name": "webscraper",
+    "directory": "/home/patrix/Documents/Code/Web/webscraper"
+  },
+  {
+    "name": "spotify_lyrics",
+    "directory": "/home/patrix/Documents/Code/Web/spotify_lyrics"
+  },
+  {
+    "name": "emr_system",
+    "directory": "/home/patrix/Documents/Code/Web/emr_system"
+  },
+  {
+    "name": "MEmo_Mobile",
+    "directory": "/home/patrix/Documents/Code/Web/MEmo_Mobile"
+  },
+  {
+    "name": "CGA-Project",
+    "directory": "/home/patrix/Documents/Code/Web/CGA-Project"
+  },
+  {
+    "name": "MEmo_backend",
+    "directory": "/home/patrix/Documents/Code/Web/MEmo_backend"
+  },
+  {
+    "name": "ometv-extension",
+    "directory": "/home/patrix/Documents/Code/Web/ometv-extension"
+  },
+  {
+    "name": "ometv-extension-backend",
+    "directory": "/home/patrix/Documents/Code/Web/ometv-extension-backend"
+  },
+  {
+    "name": "AdultFamilyHomeSaas",
+    "directory": "/home/patrix/Documents/Code/Web/AdultFamilyHomeSaas"
+  },
+  {
+    "name": "linkedin-agent",
+    "directory": "/home/patrix/Documents/Code/Web/linkedin-agent"
+  },
+  {
+    "name": "Focilab2.0",
+    "directory": "/home/patrix/Documents/Code/Web/Focilab2.0"
+  },
+  {
+    "name": "yours-tech-academy",
+    "directory": "/home/patrix/Documents/Code/Web/yours-tech-academy"
+  },
+  {
+    "name": "E-learning",
+    "directory": "/home/patrix/Documents/Code/Web/E-learning"
+  },
+  {
+    "name": "DoweitV3",
+    "directory": "/home/patrix/Documents/Code/Web/DoweitV3"
+  },
+  {
+    "name": "Insa-dlux",
+    "directory": "/home/patrix/Documents/Code/Web/Insa-dlux"
+  },
+  {
+    "name": "D-iLeon-Energy-Sourcing-Corp",
+    "directory": "/home/patrix/Documents/Code/Web/D-iLeon-Energy-Sourcing-Corp"
+  }
+]

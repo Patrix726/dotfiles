@@ -1,0 +1,33 @@
+    "network": {
+        "tooltip": true,
+        "format-wifi": "{icon} <span >  {bandwidthDownBytes}</span> <span>  {bandwidthUpBytes}</span>",
+        "rotate": ${r_deg},
+        "format-ethernet": "󰈀  <span >  {bandwidthDownBytes}</span> <span>  {bandwidthUpBytes}</span>",
+        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰖪 ",
+        "tooltip-format-disconnected": "Disconnected",
+        "format-alt": "<span foreground='#99ffdd'>  {bandwidthDownBytes}</span> <span foreground='#ffcc66'>  {bandwidthUpBytes}</span>",
+        "interval": 2,
+        "format-icons": [
+          "󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "
+        ]
+    },
+    "network#speed": {
+      "interval": 1,
+      "format": "{ifname}",
+      "format-wifi": "{icon}   {bandwidthDownBytes}  {bandwidthUpBytes}",
+      "format-ethernet": "󰌘    {bandwidthDownBytes}  {bandwidthUpBytes}",
+      "format-disconnected": "󰌙",
+      "tooltip-format": "{ipaddr}",
+      "format-linked": "󰈁 {ifname} (No IP)",
+      "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+      "tooltip-format-ethernet": "{ifname} 󰌘",
+      "tooltip-format-disconnected": "󰌙 Disconnected",
+      "min-length": 24,
+      "max-length": 24,
+      "format-icons": [
+        "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+      ]
+      // "on-click": "~/.config/hypr/scripts/RofiWifi.sh"
+    },

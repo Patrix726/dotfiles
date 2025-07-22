@@ -1,0 +1,9 @@
+    "tray": {
+        "icon-size": ${i_size},
+        "rotate": ${r_deg},
+        "spacing": 12,
+        "icons": {
+          "org.telegram.desktop": "$HOME/.local/share/icons/Reversal-grey/status/24/telegram-panel.svg"
+        }
+    },
+

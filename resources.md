@@ -1,0 +1,26 @@
+### Icons used
+- BeautyLine
+- Bibata-Modern-Amber
+- Bibata-Modern-Amber-Right
+- Bibata-Modern-Classic
+- Bibata-Modern-Classic-Right
+- Bibata-Modern-Ice
+- Bibata-Modern-Ice-Right
+- Bibata-Original-Amber
+- Bibata-Original-Amber-Right
+- Bibata-Original-Classic
+- Bibata-Original-Classic-Right
+- Bibata-Original-Ice
+- Bibata-Original-Ice-Right
+- Gruvbox-Plus-Dark
+- Gruvbox-Retro
+- icons-list.md
+- Nordzy
+- Tela-circle-black
+- Tela-circle-blue
+- Tela-circle-dracula
+- Tela-circle-green
+- Tela-circle-grey
+- Tela-circle-pink
+- Tela-circle-purple
+- Tela-circle-yellow
