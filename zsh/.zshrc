@@ -33,6 +33,6 @@ SAVEHIST=1000
 _evalcache starship init zsh
 zsh-defer mise activate zsh
 
-# Paths can be found at $ZSH_CUSTOM/paths.zsh
-# Aliases can be found at $ZSH_CUSTOM/aliases.zsh
-# Functions can be found at $ZSH_CUSTOM/func.zsh
+# Paths can be found at $HOME/.oh-my-zsh/custom/paths.zsh
+# Aliases can be found at $HOME/.oh-my-zsh/custom/aliases.zsh
+# Functions can be found at $HOME/.oh-my-zsh/custom/func.zsh
