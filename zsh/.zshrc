@@ -18,6 +18,7 @@ plugins=(
     zsh-bat
     zsh-defer
     evalcache
+    docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -26,8 +27,8 @@ source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 
 # HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 # setopt appendhistory
 
 _evalcache starship init zsh

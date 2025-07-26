@@ -8,6 +8,7 @@ export WEB="$HOME/Documents/Code/Web"
 export SCRIPTS="$HOME/Documents/Scripts"
 export ZEIT_DB="$HOME/.config/zeit.db"
 export NI_CONFIG_FILE="$HOME/.nirc"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # pnpm
 export PNPM_HOME="/home/patrix/.local/share/pnpm"

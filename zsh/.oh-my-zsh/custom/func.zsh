@@ -21,3 +21,12 @@ function batf() {
   local extension="${filename##*.}"
   tail -f "$filename" | bat -l "$extension" --paging=never
 }
+
+function spotsync() {
+  local query="$1"
+  if [[ -z $query ]]; then
+    spotdl sync .spotdl
+    return 1
+  fi
+  spotdl sync "$query" --save-file .spotdl
+}
