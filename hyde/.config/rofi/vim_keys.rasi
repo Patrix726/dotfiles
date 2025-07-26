@@ -1,0 +1,14 @@
+// Config //
+configuration {
+    kb-row-up:                   "Up,Control+k,Shift+ISO_Left_Tab";
+    kb-row-down:                 "Down,Control+j";
+    kb-accept-entry:             "Control+m,Return,KP_Enter";
+    terminal:                    "kitty";
+    kb-remove-to-eol:            "Control+Shift+e";
+    kb-mode-complete:            "Control+i";
+    kb-mode-next:                "Shift+Right,Control+Tab,Control+l";
+    kb-mode-previous:            "Shift+Left,Control+ISO_Left_Tab,Control+h";
+    kb-remove-char-back:         "BackSpace";
+    me-select-entry:             "MouseSecondary";
+    me-accept-entry:             "MousePrimary,MouseDPrimary";
+}

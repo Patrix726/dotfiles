@@ -1,3 +1,5 @@
+@import "../vim_keys.rasi"
+
 // Config //
 configuration {
     modi:                        "drun,filebrowser,window,run";
