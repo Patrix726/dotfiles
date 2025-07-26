@@ -37,3 +37,5 @@ zsh-defer mise activate zsh
 # Paths can be found at $HOME/.oh-my-zsh/custom/paths.zsh
 # Aliases can be found at $HOME/.oh-my-zsh/custom/aliases.zsh
 # Functions can be found at $HOME/.oh-my-zsh/custom/func.zsh
+
+PATH=~/.console-ninja/.bin:$PATH

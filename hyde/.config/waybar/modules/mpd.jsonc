@@ -1,0 +1,16 @@
+    "custom/mpd": {
+        "exec": "mediaplayer.py --player mpd",
+        "exec-if": "! pgrep -x spotify",
+        "format": "{}  ",
+        "rotate": ${r_deg},
+        "return-type": "json",
+        "on-click": "playerctl play-pause --player mpd",
+        "on-click-right": "playerctl next --player mpd",
+        "on-click-middle": "playerctl previous --player mpd",
+        "on-scroll-up": "volumecontrol.sh -p mpd i",
+        "on-scroll-down": "volumecontrol.sh -p mpd d",
+        "max-length": 35,
+        "escape": true,
+        "tooltip": true
+    },
+
