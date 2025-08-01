@@ -63,6 +63,16 @@ hyde/.themes/Wallbash-Gtk/gtk-3.0/gtk-dark.css
 hyde/.themes/Wallbash-Gtk/gtk-3.0/gtk.css
 hyde/.themes/Wallbash-Gtk/gtk-4.0/gtk-dark.css
 hyde/.themes/Wallbash-Gtk/gtk-4.0/gtk.css
+hyde/.config/swappy/config
 
 btop/.config/btop/btop.conf
 btop/.config/btop/btop.log
+
+todolist
+tags
+test.sh
+.luarc.json
+nvim
+
+spell/
+lazy-lock.json
