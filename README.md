@@ -37,16 +37,19 @@ Before using this dotfiles be sure to install all the required applications. I r
 To use these dotfiles, you can clone the repository and create symbolic links to the appropriate locations:
 
 #### Clone the repository
+
 ```
 git clone https://github.com/your-username/dotfiles.git ~/.dotfiles
 ```
 
 #### Run the setup script (if available) or manually link files
+
 ```
 cd ~/.dotfiles
 stow zsh nvim mpv dirs starship # And any other configs you want
 stow hyde # Or stow jakoolit based on your preferred hyprland look
 ```
+
 ## 🖥 Screenshots
 
 ![Screenshot_29-Mar_15-22-30_18393](https://github.com/user-attachments/assets/4d1b1777-4280-4c49-b371-6280e42a10cc)
@@ -54,8 +57,9 @@ stow hyde # Or stow jakoolit based on your preferred hyprland look
 ![Screenshot_08-Jul_16-35-58_22053](https://github.com/user-attachments/assets/5570da79-d89a-4445-a76a-1e50cac20f71)
 
 ## 🔧 Customization
+
 Feel free to modify these dotfiles to fit your personal preferences. Contributions and suggestions are welcome!
 
 ## 📝 License
-This repository is available under the MIT License. Happy tweaking! 🚀
 
+This repository is available under the MIT License. Happy tweaking! 🚀

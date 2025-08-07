@@ -1,4 +1,5 @@
-### Icons used
+# Icons used
+
 - BeautyLine
 - Bibata-Modern-Amber
 - Bibata-Modern-Amber-Right

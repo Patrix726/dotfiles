@@ -1,0 +1,9 @@
+[[mgr.prepend_keymap]]
+on   = [ "g", "w" ]
+run  = "cd ~/Documents/Code/Web"
+desc = "go to Web"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "C" ]
+run  = "cd ~/Documents/Code"
+desc = "go to Code"

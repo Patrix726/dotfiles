@@ -261,6 +261,7 @@
     },
 
     "network": {
+        "interface": "wlp2s0",
         "tooltip": true,
         "format-wifi": "{icon} <span >  {bandwidthDownBytes}</span> <span>  {bandwidthUpBytes}</span>",
         "rotate": 0,

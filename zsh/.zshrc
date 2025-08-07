@@ -13,7 +13,7 @@ plugins=(
     mise
     zsh-autosuggestions
     zsh-syntax-highlighting
-    zeit
+    # zeit
     you-should-use
     zsh-bat
     zsh-defer
@@ -32,6 +32,7 @@ SAVEHIST=10000
 # setopt appendhistory
 
 _evalcache starship init zsh
+_evalcache zoxide init zsh --cmd cd
 zsh-defer mise activate zsh
 
 # Paths can be found at $HOME/.oh-my-zsh/custom/paths.zsh
