@@ -7,3 +7,33 @@ desc = "go to Web"
 on   = [ "g", "C" ]
 run  = "cd ~/Documents/Code"
 desc = "go to Code"
+
+[[mgr.prepend_keymap]]
+on = [ "M" ]
+run = "plugin bookmarks save"
+desc = "Save current position as a bookmark"
+
+[[mgr.prepend_keymap]]
+on = [ "'" ]
+run = "plugin bookmarks jump"
+desc = "Jump to a bookmark"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "d" ]
+run = "plugin bookmarks delete"
+desc = "Delete a bookmark"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "D" ]
+run = "plugin bookmarks delete_all"
+desc = "Delete all bookmarks"
+
+[[mgr.prepend_keymap]]
+on   = "f"
+run  = "plugin jump-to-char"
+desc = "Jump to char"
+
+[[mgr.prepend_keymap]]
+on = [ "i" ]
+run  = "plugin what-size"
+desc = "Calc size of selection or cwd" 

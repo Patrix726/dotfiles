@@ -75,3 +75,5 @@ test.sh
 
 spell/
 lazy-lock.json
+
+yazi/.config/yazi/plugins/
