@@ -1,0 +1,85 @@
+$HOME/.config/starship.toml|
+format = """
+[░▒▓](#<wallbash_1xa8>)\
+[  ](bg:#<wallbash_1xa8> fg:#<wallbash_txt4>)\
+[](bg:#<wallbash_1xa5> fg:#<wallbash_1xa8>)\
+$directory\
+[](fg:#<wallbash_1xa5> bg:#<wallbash_1xa4>)\
+$git_branch\
+$git_status\
+[](fg:#<wallbash_1xa4> bg:#<wallbash_1xa2>)\
+$nodejs\
+$rust\
+$golang\
+$php\
+$python\
+$java\
+$lua\
+[](fg:#<wallbash_1xa2> bg:#<wallbash_1xa1>)\
+$cmd_duration\
+[ ](fg:#<wallbash_1xa1>)\
+\n$character"""
+
+[directory]
+style = "fg:#<wallbash_1xa9> bg:#<wallbash_1xa5>"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#<wallbash_1xa4>"
+format = '[[ $symbol $branch ](fg:#<wallbash_1xa9> bg:#<wallbash_1xa4>)]($style)'
+
+[git_status]
+style = "bg:#<wallbash_1xa4>"
+format = '[[($all_status$ahead_behind )](fg:#<wallbash_1xa9> bg:#<wallbash_1xa4>)]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:#<wallbash_1xa2>"
+format = '[[ $symbol ($version) ](fg:#<wallbash_1xa9> bg:#<wallbash_1xa2>)]($style)'
+
+[java]
+symbol = " "
+style = "bg:#<wallbash_1xa2>"
+format = '[[ $symbol ($version) ](fg:#<wallbash_1xa9> bg:#<wallbash_1xa2>)]($style)'
+
+[lua]
+symbol = " "
+style = "bg:#<wallbash_1xa2>"
+format = '[[ $symbol ($version) ](fg:#<wallbash_1xa9> bg:#<wallbash_1xa2>)]($style)'
+
+
+[python]
+symbol = " "
+style = "bg:#<wallbash_1xa2>"
+format = '[[ $symbol ($version) ](fg:#<wallbash_1xa9> bg:#<wallbash_1xa2>)]($style)'
+
+
+[rust]
+symbol = ""
+style = "bg:#<wallbash_1xa2>"
+format = '[[ $symbol ($version) ](fg:#<wallbash_1xa9> bg:#<wallbash_1xa2>)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#<wallbash_1xa2>"
+format = '[[ $symbol ($version) ](fg:#<wallbash_1xa9> bg:#<wallbash_1xa2>)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#<wallbash_1xa2>"
+format = '[[ $symbol ($version) ](fg:#<wallbash_1xa9> bg:#<wallbash_1xa2>)]($style)'
+
+[cmd_duration]
+disabled = false
+min_time = 500
+style = "bg:#<wallbash_1xa1>"
+format = '[[  $duration ](fg:#<wallbash_1xa9> bg:#<wallbash_1xa1>)]($style)'
