@@ -30,4 +30,5 @@ return {
     cmd = 'VimBeGood',
   },
   { 'sindrets/diffview.nvim', opts = {} },
+  { 'godlygeek/tabular', cmd = 'Tabularize' },
 }

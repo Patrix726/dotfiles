@@ -143,6 +143,7 @@ map({ 'n', 't' }, '<A-h>', ToggleTerminal, { desc = 'Toggle terminal', noremap =
 -- map('n', '<leader>trn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
 map('n', '<leader>trn', '<cmd>ComfyLineNumbers toggle<CR>', { desc = 'Toggle relative number' })
 map('x', '/', '<Esc>/\\%V', { desc = 'Search within visually selected lines' })
+map({ 'n', 'v' }, '<leader>cf', '<cmd>Tabularize multiple_spaces<CR>', { desc = 'Tabularize paragraph into columns based on multiple space' })
 
 -- Navigate Open Buffers
 map('n', '<leader>x', ':bd<CR>', { desc = 'buffer close' })
