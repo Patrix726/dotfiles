@@ -39,7 +39,7 @@ return {
         -- Conform can also run multiple formatters sequentially
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        python = { 'isort', 'black', stop_after_first = true },
+        python = { 'isort', 'black', stop_after_first = false },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
         javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },

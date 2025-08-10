@@ -45,6 +45,7 @@ return {
   prettier = {},
 
   isort = {},
+  black = {},
 
   eslint_d = {},
   eslint = {},

@@ -1,3 +1,4 @@
+$HOME/.config/kitty/tab-config.conf|killall -SIGUSR1 kitty
 # tab_bar_edge                      bottom
 tab_bar_align                       center
 tab_bar_margin_width      9
@@ -5,8 +6,8 @@ tab_bar_margin_height     7 0
 tab_bar_style             separator
 tab_bar_min_tabs          2
 tab_separator             ""
-tab_title_template        "{fmt.fg._7A82C2}{fmt.bg.default}{fmt.fg._CCD2FF}{fmt.bg._7A82C2} {title[title.rfind('/')+1:]} {fmt.fg._7A82C2}{fmt.bg.default} "
-active_tab_title_template "{fmt.fg._AAB5F0}{fmt.bg.default}{fmt.fg._0D0D0D}{fmt.bg._AAB5F0} {title[title.rfind('/')+1:]} {fmt.fg._AAB5F0}{fmt.bg.default} "
+tab_title_template        "{fmt.fg._<wallbash_1xa6>}{fmt.bg.default}{fmt.fg._<wallbash_1xa9>}{fmt.bg._<wallbash_1xa6>} {title[title.rfind('/')+1:]} {fmt.fg._<wallbash_1xa6>}{fmt.bg.default} "
+active_tab_title_template "{fmt.fg._<wallbash_4xa8>}{fmt.bg.default}{fmt.fg._<wallbash_txt4>}{fmt.bg._<wallbash_4xa8>} {title[title.rfind('/')+1:]} {fmt.fg._<wallbash_4xa8>}{fmt.bg.default} "
 
 # tab_bar_background           #36a3d9
 # inactive_tab_background   #36a3d9
