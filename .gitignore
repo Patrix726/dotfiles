@@ -59,6 +59,7 @@ hyde/.config/qt6ct/qt6ct.conf
 hyde/.config/rofi/theme.rasi
 hyde/.config/waybar/style.css
 hyde/.config/waybar/theme.css
+hyde/.config/waybar/config.jsonc
 hyde/.themes/Wallbash-Gtk/gtk-3.0/gtk-dark.css
 hyde/.themes/Wallbash-Gtk/gtk-3.0/gtk.css
 hyde/.themes/Wallbash-Gtk/gtk-4.0/gtk-dark.css
