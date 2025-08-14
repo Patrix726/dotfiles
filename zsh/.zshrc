@@ -13,7 +13,7 @@ plugins=(
     mise
     zsh-autosuggestions
     zsh-syntax-highlighting
-    # zeit
+    zeit
     you-should-use
     zsh-bat
     zsh-defer
@@ -35,6 +35,7 @@ _evalcache starship init zsh
 _evalcache zoxide init zsh --cmd cd
 zsh-defer mise activate zsh
 
+precmd() { precmd() { echo "" } }
 # Paths can be found at $HOME/.oh-my-zsh/custom/paths.zsh
 # Aliases can be found at $HOME/.oh-my-zsh/custom/aliases.zsh
 # Functions can be found at $HOME/.oh-my-zsh/custom/func.zsh

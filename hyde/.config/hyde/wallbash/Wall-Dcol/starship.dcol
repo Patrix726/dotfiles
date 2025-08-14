@@ -20,6 +20,8 @@ $cmd_duration\
 [ ](fg:#<wallbash_1xa1>)\
 \n$character"""
 
+add_newline = false
+
 [directory]
 style = "fg:#<wallbash_1xa9> bg:#<wallbash_1xa5>"
 format = "[ $path ]($style)"

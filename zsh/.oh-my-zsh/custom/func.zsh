@@ -24,9 +24,36 @@ function batf() {
 
 function spotsync() {
   local query="$1"
+  local audio_src="$2"
   if [[ -z $query ]]; then
     spotdl sync .spotdl
     return 1
   fi
-  spotdl sync "$query" --save-file .spotdl
+  if [[ -z $audio_src ]]; then
+    spotdl sync "$query" --save-file .spotdl
+    return 0
+  fi
+  spotdl sync "$query" --save-file .spotdl --audio "$audio_src"
+}
+
+function help() {
+  local command_name="$1"
+
+  if [[ -z "$command_name" ]]; then
+    echo "Usage: help <command>"
+    return 1
+  fi
+
+  # Try --help first, as it's often more concise for quick help
+  if "$command_name" --help 2>&1 | less; then
+    return 0
+  fi
+
+  # If --help fails, try man pages
+  if man "$command_name" | less; then
+    return 0
+  fi
+
+  echo "Could not find help documentation for '$command_name'."
+  return 1
 }
