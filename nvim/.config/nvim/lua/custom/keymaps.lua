@@ -120,6 +120,7 @@ map('n', '<A-j>', ':m .+1<cr>==', { desc = 'Move current line to below' })
 map('n', '<A-k>', ':m .-2<cr>==', { desc = 'Move current line to above' })
 map('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines to below' })
 map('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines to above' })
+map('v', '<leader>p', '"_dP', { desc = 'Paste onto selected line and keep the paste value' })
 map('n', 'U', '<C-r>', { desc = 'Redo key' })
 map('i', 'jk', '<ESC>')
 map('n', '<leader>rr', ':RunCode<CR>', { noremap = true, silent = false })
@@ -140,8 +141,8 @@ map('n', '<leader>wk', ':WhichKey<CR>', { desc = 'Open WhichKey dialog' })
 map('n', '<leader>/', 'gcc', { desc = 'toggle comment', remap = true })
 map('v', '<leader>/', 'gc', { desc = 'toggle comment', remap = true })
 map({ 'n', 't' }, '<A-h>', ToggleTerminal, { desc = 'Toggle terminal', noremap = true })
--- map('n', '<leader>trn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
-map('n', '<leader>trn', '<cmd>ComfyLineNumbers toggle<CR>', { desc = 'Toggle relative number' })
+map('n', '<leader>trn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
+-- map('n', '<leader>trn', '<cmd>ComfyLineNumbers toggle<CR>', { desc = 'Toggle relative number' })
 map('x', '/', '<Esc>/\\%V', { desc = 'Search within visually selected lines' })
 map({ 'n', 'v' }, '<leader>cf', '<cmd>Tabularize multiple_spaces<CR>', { desc = 'Tabularize paragraph into columns based on multiple space' })
 
@@ -151,7 +152,7 @@ map('n', '<tab>', ':bn<CR>', { desc = 'buffer goto next' })
 map('n', '<S-tab>', ':bp<CR>', { desc = 'buffer goto previous' })
 
 -- Navigate Open Tabs
-map('n', '<C-x>', ':tabclose<CR>', { desc = 'Tab close' })
+map('n', '<C-z>', ':tabclose<CR>', { desc = 'Tab close' })
 map('n', '<C-n>', ':tabnew<CR>', { desc = 'Tab create' })
 map('n', '<C-j>', ':tabnext<CR>', { desc = 'Tab goto next' })
 map('n', '<C-k>', ':tabprevious<CR>', { desc = 'Tab goto previous' })
@@ -194,7 +195,7 @@ local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'
 -- map({ 'n', 'x', 'o' }, 'T', ts_repeat_move.builtin_T_expr, { expr = true })
 
 -- TreeSJ keymaps
-map('n', '<leader>j', require('treesj').toggle)
+map('n', '<leader>j', require('treesj').toggle, { desc = 'Toggle between inline and multiline callback format' })
 
 -- -- For extending default preset with `recursive = true`
 -- map('n', '<leader>M', function()

@@ -31,4 +31,5 @@ return {
   },
   { 'sindrets/diffview.nvim', opts = {} },
   { 'godlygeek/tabular', cmd = 'Tabularize' },
+  { 'dmmulroy/ts-error-translator.nvim', opts = {} },
 }
