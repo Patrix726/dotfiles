@@ -1,0 +1,9 @@
+    "custom/recorder": {
+		"format": "{}",
+		"interval": "once",
+		"exec": "echo ' '",
+		"tooltip": "false",
+		"exec-if": "pgrep 'wf-recorder'",
+		"on-click": "screenrecord.sh",
+		"signal": 8
+	},

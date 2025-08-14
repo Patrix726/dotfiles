@@ -1,7 +1,7 @@
     "pulseaudio": {
-        "format": "{icon} {volume}",
+        "format": "{volume} {icon}",
         "rotate": ${r_deg},
-        "format-muted": "婢",
+        "format-muted": " ",
         "on-click": "volumecontrol.sh -o m",
         "on-click-right": "pavucontrol -t 3",
         "on-scroll-up": "volumecontrol.sh -o i",
@@ -9,12 +9,12 @@
         "tooltip-format": "{icon} {desc} // {volume}%",
         "scroll-step": 5,
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
             "default": [" ", " ", " "]
         }
     },

@@ -1,5 +1,5 @@
-0|45|top|( tray ) (custom/spotify custom/rhythmbox custom/mpd ) | ( hyprland/workspaces )|( network ) ( pulseaudio battery clock notifications )
-1|45|top|( tray ) ( hyprland/workspaces )| ( custom/spotify custom/rhythmbox custom/mpd ) |( network ) ( pulseaudio battery clock notifications )
+0|45|top|( tray ) (custom/spotify custom/rhythmbox custom/mpd ) | ( hyprland/workspaces )|( network ) ( custom/recorder pulseaudio battery clock notifications )
+1|45|top|( tray ) ( hyprland/workspaces )| ( custom/spotify custom/rhythmbox custom/mpd ) |( network ) ( custom/recorder pulseaudio battery clock notifications )
 0|45|top|( custom/power custom/cliphist custom/wbar custom/theme custom/wallchange ) ( idle_inhibitor clock custom/spotify custom/rhythmbox custom/mpd )|( wlr/taskbar )|( tray ) ( backlight network pulseaudio pulseaudio#microphone )
 0|45|top|( wlr/taskbar custom/spotify custom/rhythmbox custom/mpd )|( idle_inhibitor clock )|( backlight network pulseaudio pulseaudio#microphone custom/updates ) ( tray battery ) ( custom/wallchange custom/theme custom/wbar custom/cliphist custom/power )
 0|45|top|( cpu memory custom/cpuinfo custom/gpuinfo ) ( idle_inhibitor clock ) ( hyprland/workspaces )|( wlr/taskbar )|( backlight network pulseaudio pulseaudio#microphone custom/updates custom/keybindhint ) ( tray battery ) ( custom/wallchange custom/theme custom/wbar custom/cliphist custom/power )
