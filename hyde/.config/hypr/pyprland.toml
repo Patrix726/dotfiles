@@ -10,3 +10,9 @@ animation = "fromTop"
 command = "kitty --class kitty-dropterm"
 class = "kitty-dropterm"
 size = "75% 65%"
+
+[scratchpads.btop]
+animation = "fromTop"
+command = "kitty --class kitty-btop btop"
+class = "kitty-btop"
+size = "75% 65%"
