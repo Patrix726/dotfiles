@@ -84,7 +84,6 @@ return {
         lualine_z = { 'location' },
       },
       extensions = { 'toggleterm', 'trouble' },
-      tabline = {},
     }
   end,
 }

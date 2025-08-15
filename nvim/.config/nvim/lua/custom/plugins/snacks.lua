@@ -23,7 +23,19 @@ return {
     },
     notifier = {},
     indent = {},
-    scratch = {},
+    scratch = {
+      ft = function()
+        if vim.bo.buftype == '' and vim.bo.filetype == 'lua' then
+          return vim.bo.filetype
+        end
+        return 'markdown'
+      end,
+      filekey = {
+        cwd = true,
+        branch = false,
+        count = false,
+      },
+    },
     input = {},
     bigfile =
       ---@class snacks.bigfile.Config

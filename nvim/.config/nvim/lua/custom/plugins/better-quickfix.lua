@@ -1,2 +1,2 @@
-return {}
--- return { 'kevinhwang91/nvim-bqf', opts = {} }
+-- return {}
+return { 'kevinhwang91/nvim-bqf', opts = {} }

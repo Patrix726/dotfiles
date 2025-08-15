@@ -11,7 +11,6 @@ return {
       'nvim-telescope/telescope.nvim',
     },
   },
-  { 'akinsho/bufferline.nvim', version = '*', dependencies = 'nvim-tree/nvim-web-devicons' },
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
@@ -32,4 +31,13 @@ return {
   { 'sindrets/diffview.nvim', opts = {} },
   { 'godlygeek/tabular', cmd = 'Tabularize' },
   { 'dmmulroy/ts-error-translator.nvim', opts = {} },
+  {
+    'unblevable/quick-scope',
+    config = function() end,
+  },
+  {
+    'folke/persistence.nvim',
+    event = 'BufReadPre',
+    opts = {},
+  },
 }
