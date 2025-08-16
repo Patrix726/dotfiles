@@ -33,7 +33,13 @@ return {
     'ThePrimeagen/vim-be-good',
     cmd = 'VimBeGood',
   },
-  { 'godlygeek/tabular', cmd = 'Tabularize' },
+  {
+    'godlygeek/tabular',
+    cmd = 'Tabularize',
+    keys = {
+      { '<leader>cf', mode = { 'n', 'v' }, '<cmd>Tabularize multiple_spaces<CR>', desc = 'Tabularize paragraph into columns based on multiple space' },
+    },
+  },
   { 'dmmulroy/ts-error-translator.nvim', opts = {}, ft = { 'typescript', 'typescriptreact' } },
   {
     'unblevable/quick-scope',

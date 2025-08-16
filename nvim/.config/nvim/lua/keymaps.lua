@@ -16,30 +16,11 @@ map('t', '<C-j>', '<cmd>wincmd j<cr>', { desc = 'Move focus to the lower window 
 map('t', '<C-k>', '<cmd>wincmd k<cr>', { desc = 'Move focus to the upper window in terminal mode' })
 map('t', '<C-w>', '<C-\\><C-n><C-w>', { desc = 'Control current window in terminal mode' })
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
--- map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 map('n', '<C-S-h>', '<C-w>H', { desc = 'Move window to the left' })
 map('n', '<C-S-l>', '<C-w>L', { desc = 'Move window to the right' })
 map('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
 map('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
-
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
-})
 
 -- Remove the Enter remap in the quickfix window
 vim.api.nvim_create_autocmd('BufReadPost', {
@@ -50,24 +31,19 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
--- [[ Custom Keymaps ]]
--- map ctrl + hjkl to movement in insert mode
--- map('i', '<C-h>', '', { desc = 'Move left in insert mode' })
--- map('i', '<C-j>', '', { desc = 'Move down in insert mode' })
--- map('i', '<C-k>', '', { desc = 'Move up in insert mode' })
--- map('i', '<C-l>', '', { desc = 'Move right in insert mode' })
-
 -- Search and replace
 map('n', '<leader>ra', function()
   local search_term = vim.fn.getreg '/'
-  local replace_term = vim.fn.input("Replace '" .. search_term .. "' with: ")
-  vim.cmd(':%s/' .. search_term .. '/' .. replace_term .. '/g')
+  Snacks.input({ prompt = "Replace '" .. search_term .. "' with: " }, function(replace_term)
+    vim.cmd(':%s/' .. search_term .. '/' .. replace_term .. '/g')
+  end)
 end, { desc = 'Substitute last searched word with input' })
 
 map('n', '<leader>rs', function()
   local search_term = vim.fn.getreg '/'
-  local replace_term = vim.fn.input("Replace '" .. search_term .. "' with: ")
-  vim.cmd(':%s/' .. search_term .. '/' .. replace_term .. '/gc')
+  Snacks.input({ prompt = "Replace '" .. search_term .. "' with: " }, function(replace_term)
+    vim.cmd(':%s/' .. search_term .. '/' .. replace_term .. '/gc')
+  end)
 end, { desc = 'Substitute last searched word with input with confirmation' })
 
 map('n', ';', ':', { desc = 'CMD enter command mode' })
@@ -89,14 +65,6 @@ map('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines to above' })
 map('v', '<leader>p', '"_dP', { desc = 'Paste onto selected line and keep the paste value' })
 map('n', 'U', '<C-r>', { desc = 'Redo key' })
 map('i', 'jk', '<ESC>')
-map('n', '<leader>rr', ':RunCode<CR>', { noremap = true, silent = false })
-map('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = false })
-map('n', '<leader>rft', ':RunFile tab<CR>', { noremap = true, silent = false })
-map('n', '<leader>rp', ':RunProject<CR>', { noremap = true, silent = false })
-map('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
-map('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
-map('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
-map('n', '[.', '`.', { desc = 'Jump to position where last change was made' })
 map('n', '`', 'q', { desc = 'Start macro recording' })
 map('n', 'q', 'b', { desc = 'One word back' })
 map('n', 'b', '%', { desc = 'Complimenting bracket' })
@@ -105,14 +73,7 @@ map('n', '<leader>wk', ':WhichKey<CR>', { desc = 'Open WhichKey dialog' })
 map('n', '<leader>/', 'gcc', { desc = 'toggle comment', remap = true })
 map('v', '<leader>/', 'gc', { desc = 'toggle comment', remap = true })
 map('x', '/', '<Esc>/\\%V', { desc = 'Search within visually selected lines' })
-map({ 'n', 'v' }, '<leader>cf', '<cmd>Tabularize multiple_spaces<CR>', { desc = 'Tabularize paragraph into columns based on multiple space' })
 map('n', '<leader>trn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
--- map('n', '<leader>trn', '<cmd>ComfyLineNumbers toggle<CR>', { desc = 'Toggle relative number' })
-
--- Toggle term keymaps
--- map({ 'n', 't' }, '<A-h>', '<cmd>ToggleTerm direction=horizontal<cr>', { desc = 'Toggle horizontal terminal', noremap = true })
--- map({ 'n', 't' }, '<A-v>', '<cmd>ToggleTerm direction=vertical<cr>', { desc = 'Toggle vertical terminal', noremap = true })
--- map({ 'n', 't' }, '<A-f>', '<cmd>ToggleTerm direction=float<cr>', { desc = 'Toggle float terminal', noremap = true })
 
 -- Navigate Open Buffers
 map('n', '<leader>x', ':bd<CR>', { desc = 'buffer close' })
@@ -137,25 +98,6 @@ map('n', '<leader>od', require('persistence').stop, { desc = "Stop persistence s
 map('n', '<leader>ts', require('snacks').scratch.open, { desc = 'Toggle scratch buffer instance' })
 map('n', '<leader>sS', require('snacks').scratch.select, { desc = 'Select from scranch instances' })
 
--- TreeSJ keymaps
--- map('n', '<leader>j', require('treesj').toggle, { desc = 'Toggle between inline and multiline callback format' })
-
--- Leetcode keymaps
--- local lc = require 'configs.leetcode'
-
--- map('n', '<leader>lc', '<cmd>Leet<CR>', { desc = 'Open Leetcode dashboard' })
--- map('n', '<leader>lr', '<cmd>Leet run<CR>', { desc = 'Run code attempt' })
--- map('n', '<leader>ls', '<cmd>Leet submit<CR>', { desc = 'Submit code attempt' })
--- map('n', '<leader>ln', '<cmd>Leet console<CR>', { desc = 'Open leetcode console' })
--- map('n', '<leader>li', '<cmd>Leet info<CR>', { desc = 'Open info menu for current problem' })
--- map('n', '<leader>ll', '<cmd>Leet lang<CR>', { desc = 'Open language menu' })
--- map('n', '<leader>ly', '<cmd>Leet yank<CR>', { desc = 'Copy the attempted code solution' })
--- map('n', '<leader>ld', '<cmd>Leet desc<CR>', { desc = 'Toggle question description' })
--- map('n', '<leader>lxe', '<cmd>Leet random difficulty=easy<CR>', { desc = 'Open a random easy problem' })
--- map('n', '<leader>lxm', '<cmd>Leet random difficulty=medium<CR>', { desc = 'Open a random medium problem' })
--- map('n', '<leader>lxh', '<cmd>Leet random difficulty=hard<CR>', { desc = 'Open a random hard problem' })
--- map('n', '<leader>lg', lc.move_and_git_commit, { desc = 'Move the submitted code to solved list and git commit' })
---
 -- Repeat last move from treesitter textobjects
 
 -- local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'
@@ -172,4 +114,3 @@ map('n', '<leader>sS', require('snacks').scratch.select, { desc = 'Select from s
 -- map({ 'n', 'x', 'o' }, 'F', ts_repeat_move.builtin_F_expr, { expr = true })
 -- map({ 'n', 'x', 'o' }, 't', ts_repeat_move.builtin_t_expr, { expr = true })
 -- map({ 'n', 'x', 'o' }, 'T', ts_repeat_move.builtin_T_expr, { expr = true })
--- require 'custom.keymaps'

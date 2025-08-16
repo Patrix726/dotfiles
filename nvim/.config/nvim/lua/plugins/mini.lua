@@ -21,7 +21,7 @@ return {
       require('mini.basics').setup {
         autocommands = {
           -- Basic autocommands (highlight on yank, start Insert in terminal, ...)
-          basic = false,
+          basic = true,
 
           -- Set 'relativenumber' only in linewise and blockwise Visual mode
           relnum_in_visual_mode = false,
