@@ -27,9 +27,7 @@ return {
     --   return vim.api.nvim_win_get_width(0) > 80 and not aerial.was_closed()
     -- end,
   },
-  config = function(_, opts)
-    require('aerial').setup(opts)
-
-    vim.keymap.set('n', '<leader>ta', '<cmd>AerialToggle<cr>', { silent = true })
-  end,
+  keys = {
+    { '<leader>ta', mode = 'n', '<cmd>AerialToggle<cr>', desc = 'Toggle aerial volume' },
+  },
 }

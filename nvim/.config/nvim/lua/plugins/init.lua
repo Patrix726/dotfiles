@@ -3,8 +3,12 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  { 'NMAC427/guess-indent.nvim', opts = {} },
   {
     'NeogitOrg/neogit',
+    keys = {
+      { '<leader>gi', mode = 'n', ':Neogit<CR>', noremap = true, desc = 'Open Neogit dashboard' },
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'sindrets/diffview.nvim',
@@ -13,6 +17,7 @@ return {
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',
+    ft = { 'markdown' },
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
@@ -20,7 +25,7 @@ return {
   },
   {
     'chentoast/marks.nvim',
-    event = 'VeryLazy',
+    event = 'BufReadPost',
     opts = {},
   },
   { 'wakatime/vim-wakatime', lazy = false },
@@ -28,11 +33,13 @@ return {
     'ThePrimeagen/vim-be-good',
     cmd = 'VimBeGood',
   },
-  { 'sindrets/diffview.nvim', opts = {} },
   { 'godlygeek/tabular', cmd = 'Tabularize' },
-  { 'dmmulroy/ts-error-translator.nvim', opts = {} },
+  { 'dmmulroy/ts-error-translator.nvim', opts = {}, ft = { 'typescript', 'typescriptreact' } },
   {
     'unblevable/quick-scope',
+    init = function()
+      require 'configs.quick-scope'
+    end,
     config = function() end,
   },
   {

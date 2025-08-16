@@ -1,12 +1,7 @@
 return {
   'nvim-treesitter/nvim-treesitter-textobjects',
-  lazy = false,
   enabled = true,
-  -- keys = {
-  --   { "]m", false }, -- already tried without those 2 lines
-  --   { "[m", false },
-  -- },
-  -- ft = { "go", "gomod" },
+  event = { 'BufReadPost', 'BufNewFile' },
   dependencies = { 'nvim-treesitter/nvim-treesitter' },
   config = function()
     require('nvim-treesitter.configs').setup {

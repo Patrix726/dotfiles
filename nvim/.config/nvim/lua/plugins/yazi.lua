@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   'mikavilpas/yazi.nvim',
-  event = 'VeryLazy',
+  -- event = 'VeryLazy',
   dependencies = {
     { 'nvim-lua/plenary.nvim', lazy = true },
   },
@@ -15,12 +15,12 @@ return {
     },
     {
       -- Open in the current working directory
-      '<leader>cw',
+      '<leader>yw',
       '<cmd>Yazi cwd<cr>',
       desc = "Open the file manager in nvim's working directory",
     },
     {
-      '<c-up>',
+      '<leader>yt',
       '<cmd>Yazi toggle<cr>',
       desc = 'Resume the last yazi session',
     },

@@ -107,5 +107,3 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.fn.sign_define('FoldClosed', { text = ' ', texthl = 'Folded' })
 -- vim.fn.sign_define('FoldOpen', { text = ' ', texthl = 'Folded' })
 -- vim.fn.sign_define('FoldSeparator', { text = ' ', texthl = 'Folded' })
-
-require 'custom.configs.quick-scope'

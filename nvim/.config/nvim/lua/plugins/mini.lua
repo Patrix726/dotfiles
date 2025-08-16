@@ -18,6 +18,22 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      require('mini.basics').setup {
+        autocommands = {
+          -- Basic autocommands (highlight on yank, start Insert in terminal, ...)
+          basic = false,
+
+          -- Set 'relativenumber' only in linewise and blockwise Visual mode
+          relnum_in_visual_mode = false,
+        },
+
+        mappings = {
+          move_with_alt = true,
+          windows = true,
+        },
+      }
+
+      require('mini.bracketed').setup()
       -- require('mini.sessions').setup { auto_read = false, directory = '~/.local/state/nvim/session/' }
 
       -- Uncomment the bottom line to switch back to status line
