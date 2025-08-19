@@ -57,7 +57,8 @@ return {
         --
         -- defaults = {
         --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+        --     i = { ['<c-s>'] = require('configs.actions').save_colorscheme },
+        --     n = { ['<c-s>'] = require('configs.actions').save_colorscheme },
         --   },
         -- },
         pickers = {

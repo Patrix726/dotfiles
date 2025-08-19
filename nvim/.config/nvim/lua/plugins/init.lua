@@ -3,6 +3,14 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  {
+    dir = vim.fn.stdpath 'config' .. '/lua/ui',
+    lazy = false,
+    priority = 900,
+    config = function()
+      require('ui').setup()
+    end,
+  },
   { 'NMAC427/guess-indent.nvim', opts = {} },
   {
     'NeogitOrg/neogit',
