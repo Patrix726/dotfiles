@@ -5,7 +5,13 @@ local map = vim.keymap.set
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+map('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+map('n', '<leader>q', function()
+  require('configs.qf').toggle_qf 'q'
+end, { desc = 'Toggle [Q]uickfix list' })
+map('n', '<leader>l', function()
+  require('configs.qf').toggle_qf 'l'
+end, { desc = 'Toggle [L]ocation list' })
 
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode

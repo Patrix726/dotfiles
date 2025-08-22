@@ -20,6 +20,6 @@ return {
     ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
     exclude = {}, -- tabout will ignore these filetypes
   },
-  event = 'InsertCharPre', -- Set the event to 'InsertCharPre' for better compatibility
+  -- event = 'InsertCharPre', -- Set the event to 'InsertCharPre' for better compatibility
   priority = 1000,
 }

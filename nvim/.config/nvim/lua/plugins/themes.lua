@@ -5,9 +5,7 @@ return {
     name = 'decay',
     lazy = false,
     priority = 1000,
-    config = function()
-      -- SNIP
-    end,
+    config = function() end,
   },
   {
     'navarasu/onedark.nvim',
@@ -24,9 +22,25 @@ return {
     'stevedylandev/ansi-nvim',
     lazy = false,
     priority = 1000,
-    config = function()
-      -- vim.cmd 'colorscheme ansi'
-      -- vim.opt.termguicolors = false
-    end,
+    config = function() end,
+  },
+  {
+    'Yazeed1s/oh-lucy.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function() end,
+  },
+  { 'ellisonleao/gruvbox.nvim', priority = 1000, config = function() end },
+  { 'lunarvim/synthwave84.nvim', priority = 1000, config = function() end },
+  {
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function() end,
+  },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    config = function() end,
   },
 }

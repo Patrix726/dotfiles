@@ -55,21 +55,22 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-s>'] = require('configs.actions').save_colorscheme },
-        --     n = { ['<c-s>'] = require('configs.actions').save_colorscheme },
-        --   },
-        -- },
+        defaults = {
+          file_ignore_patterns = { 'node_modules', '.git' },
+        },
         pickers = {
           colorscheme = {
             enable_preview = true,
+            ignore_builtins = true,
           },
           find_files = {
             hidden = true,
           },
           live_grep = {
             hidden = true,
+            additional_args = function(opts)
+              return { '--hidden' }
+            end,
           },
         },
         extensions = {
