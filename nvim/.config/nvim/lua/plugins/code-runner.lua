@@ -1,6 +1,13 @@
 return {
   'CRAG666/code_runner.nvim',
-  opts = {},
+  opts = {
+    filetype = {
+      go = {
+        'cd $dir &&',
+        'go run $fileName &&',
+      },
+    },
+  },
   keys = {
     { '<leader>rr', mode = 'n', '<cmd>RunCode<CR>', noremap = true, silent = false, desc = 'RunCode' },
     { '<leader>rf', mode = 'n', '<cmd>RunFile<CR>', noremap = true, silent = false, desc = 'RunFile' },

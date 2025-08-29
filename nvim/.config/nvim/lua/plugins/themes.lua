@@ -43,4 +43,8 @@ return {
     name = 'rose-pine',
     config = function() end,
   },
+  {
+    'nyoom-engineering/oxocarbon.nvim',
+    config = function() end,
+  },
 }

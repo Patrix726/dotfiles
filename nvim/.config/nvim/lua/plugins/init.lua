@@ -77,4 +77,14 @@ return {
     event = 'BufReadPre',
     opts = {},
   },
+  {
+    'vuciv/golf',
+    cmd = 'Golf',
+    keys = {
+      { '<leader>oge', mode = { 'n' }, '<cmd>Golf easy<CR>', desc = 'Open golf problem of easy difficulty' },
+      { '<leader>ogm', mode = { 'n' }, '<cmd>Golf medium<CR>', desc = 'Open golf problem of medium difficulty' },
+      { '<leader>ogh', mode = { 'n' }, '<cmd>Golf hard<CR>', desc = 'Open golf problem of hard difficulty' },
+      { '<leader>ogt', mode = { 'n' }, '<cmd>Golf today<CR>', desc = "Open today's golf problem" },
+    },
+  },
 }

@@ -37,3 +37,8 @@ desc = "Jump to char"
 on = [ "i" ]
 run  = "plugin what-size"
 desc = "Calc size of selection or cwd" 
+
+[[input.prepend_keymap]]
+on   = "<Esc>"
+run  = "close"
+desc = "Cancel input"

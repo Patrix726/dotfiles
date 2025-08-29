@@ -4,7 +4,7 @@ return {
   -- ⚠️ must add this setting! ! !
   build = vim.fn.has 'win32' ~= 0 and 'powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false' or 'make',
   event = 'VeryLazy',
-  enabled = false,
+  enabled = true,
   version = false, -- Never set this value to "*"! Never!
   ---@module 'avante'
   ---@type avante.Config
@@ -20,7 +20,10 @@ return {
     -- WARNING: Since auto-suggestions are a high-frequency operation and therefore expensive,
     -- currently designating it as `copilot` provider is dangerous because: https://github.com/yetone/avante.nvim/issues/1048
     -- Of course, you can reduce the request frequency by increasing `suggestion.debounce`.
-    auto_suggestions_provider = 'claude',
+    auto_suggestions_provider = 'gemini',
+    suggestion = {
+      debounce = 1000,
+    },
     providers = {
       gemini = {
         model = 'gemini-2.5-pro',

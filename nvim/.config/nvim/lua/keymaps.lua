@@ -9,9 +9,11 @@ map('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]ui
 map('n', '<leader>q', function()
   require('configs.qf').toggle_qf 'q'
 end, { desc = 'Toggle [Q]uickfix list' })
-map('n', '<leader>l', function()
+map('n', '<leader>_', function()
   require('configs.qf').toggle_qf 'l'
 end, { desc = 'Toggle [L]ocation list' })
+
+map('n', '<leader>cp', require('configs.new-file').create_path_in_folder, { desc = '[C]reate new file/folder/[P]ath in selected directory' })
 
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
@@ -23,10 +25,10 @@ map('t', '<C-k>', '<cmd>wincmd k<cr>', { desc = 'Move focus to the upper window 
 map('t', '<C-w>', '<C-\\><C-n><C-w>', { desc = 'Control current window in terminal mode' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
-map('n', '<C-S-h>', '<C-w>H', { desc = 'Move window to the left' })
-map('n', '<C-S-l>', '<C-w>L', { desc = 'Move window to the right' })
-map('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
-map('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
+map('n', '<M-S-h>', '<C-w>H', { desc = 'Move window to the left' })
+map('n', '<M-S-l>', '<C-w>L', { desc = 'Move window to the right' })
+map('n', '<M-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
+map('n', '<M-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 
 -- Remove the Enter remap in the quickfix window
 vim.api.nvim_create_autocmd('BufReadPost', {
@@ -34,6 +36,15 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   group = vim.api.nvim_create_augroup('quickfix-remap', { clear = true }),
   callback = function()
     vim.cmd [[autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>]]
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Create a log keybind upon buffer filetype detection',
+  group = vim.api.nvim_create_augroup('LogKeybind', { clear = true }),
+  pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'python' },
+  callback = function()
+    map('v', '<leader>l', require('configs.macros').log(), { desc = 'Log selected value' })
   end,
 })
 
@@ -56,8 +67,8 @@ map('n', ';', ':', { desc = 'CMD enter command mode' })
 map({ 'n' }, ',', ';', { desc = 'Repeat last f or t command' })
 map({ 'n' }, ':', ',', { desc = 'Execute the inverse of the last f or t command' })
 map('n', 'ycc', 'yygccp', { remap = true, desc = 'Duplicate line and comment out original' })
-map({ 'n', 'v' }, 'H', '^', { desc = 'Go to the beginning of the line' })
-map({ 'n', 'v' }, 'L', '$', { desc = 'Go to the end of the line' })
+map({ 'n', 'v', 'o' }, 'H', '^', { desc = 'Go to the beginning of the line' })
+map({ 'n', 'v', 'o' }, 'L', '$', { desc = 'Go to the end of the line' })
 map('n', 'dH', 'd^', { desc = 'Delete upto beginning of line' })
 map('n', 'dL', 'd$', { desc = 'Delete upto end of line' })
 map('n', 'cH', 'c^', { desc = 'Cut upto beginning of line' })
@@ -80,6 +91,12 @@ map('n', '<leader>/', 'gcc', { desc = 'toggle comment', remap = true })
 map('v', '<leader>/', 'gc', { desc = 'toggle comment', remap = true })
 map('x', '/', '<Esc>/\\%V', { desc = 'Search within visually selected lines' })
 map('n', '<leader>trn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
+map('n', 'x', '"_x', { desc = 'Remap x to use the _ register' })
+map('n', '+', '<C-a>', { desc = 'Increment value' })
+map('n', '-', '<C-x>', { desc = 'Decrement value' })
+map('n', '<C-a>', 'gg<S-v>G', { desc = 'Select entire file' })
+map('n', '<leader>gp', '`[v`]', { desc = 'Select pasted text' })
+map('n', '[/', '[<c-i>', { desc = 'Get first occurence of word' })
 
 -- Navigate Open Buffers
 map('n', '<leader>x', ':bd<CR>', { desc = 'buffer close' })
@@ -104,6 +121,8 @@ map('n', '<leader>od', require('persistence').stop, { desc = "Stop persistence s
 map('n', '<leader>ts', require('snacks').scratch.open, { desc = 'Toggle scratch buffer instance' })
 map('n', '<leader>sS', require('snacks').scratch.select, { desc = 'Select from scranch instances' })
 
+-- Lens line keymaps
+map('n', '\\g', '<cmd>LenslineToggle<cr>', { desc = 'Toggle lens line' })
 -- Repeat last move from treesitter textobjects
 
 -- local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'

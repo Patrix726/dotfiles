@@ -5,6 +5,7 @@ return {
   opts = {
     -- Your configuration, if any
   },
+  enabled = false,
   -- stylua: ignore
   keys = {
     { '<leader>ot', function() require('opencode').toggle() end, desc = 'Toggle embedded opencode', },

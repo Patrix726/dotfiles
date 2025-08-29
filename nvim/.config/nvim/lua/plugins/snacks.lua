@@ -10,12 +10,20 @@ return {
         ---@type snacks.dashboard.Item[]
         keys = {
           { icon = ' ', key = 'f', desc = 'Find File', action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = ' ', key = 'n', desc = 'New File', action = ':ene | startinsert' },
+          -- { icon = ' ', key = 'n', desc = 'New File', action = ':ene | startinsert' },
           { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
           { icon = ' ', key = 'r', desc = 'Recent Files', action = ":lua Snacks.dashboard.pick('oldfiles')" },
           { icon = ' ', key = 'l', desc = 'Leetcode Dashboard', action = ':Leet' },
           { icon = ' ', key = 'c', desc = 'Config', action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
           { icon = '󰦛 ', key = 's', desc = 'Restore Session', section = 'session' },
+          {
+            icon = '󰦛 ',
+            key = 'S',
+            desc = 'Restore Last Session',
+            action = function()
+              require('persistence').load { last = true }
+            end,
+          },
           { icon = '󰒲 ', key = 'L', desc = 'Lazy', action = ':Lazy', enabled = package.loaded.lazy ~= nil },
           { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
         },
@@ -25,7 +33,7 @@ return {
     indent = {},
     scratch = {
       ft = function()
-        if vim.bo.buftype == '' and vim.bo.filetype == 'lua' then
+        if vim.bo.buftype == '' and vim.bo.filetype == 'lua' and vim.bo.filetype == 'python' and vim.bo.filetype == 'javascript' then
           return vim.bo.filetype
         end
         return 'markdown'
@@ -34,6 +42,21 @@ return {
         cwd = true,
         branch = false,
         count = false,
+      },
+      win_by_ft = {
+        lua = {
+          keys = {
+            ['source'] = {
+              '<cr>',
+              function(self)
+                local name = 'scratch.' .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(self.buf), ':e')
+                Snacks.debug.run { buf = self.buf, name = name }
+              end,
+              desc = 'Source buffer',
+              mode = { 'n', 'x' },
+            },
+          },
+        },
       },
     },
     input = {},

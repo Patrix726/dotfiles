@@ -45,25 +45,29 @@ return {
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
             [']c'] = '@conditional.outer',
-            [']f'] = '@loop.outer',
+            [']p'] = '@loop.outer',
+            [']f'] = '@function.outer',
             -- ["]m"] = "@function.outer",
             -- ["]]"] = "@class.outer",
           },
           goto_next_end = {
             [']C'] = '@conditional.outer',
-            [']F'] = '@loop.outer',
+            [']P'] = '@loop.outer',
+            [']F'] = '@function.outer',
             -- ["]M"] = "@function.outer",
             -- ["]["] = "@class.outer",
           },
           goto_previous_start = {
             ['[c'] = '@conditional.outer',
-            ['[f'] = '@loop.outer',
+            ['[p'] = '@loop.outer',
+            ['[f'] = '@function.outer',
             -- ["[m"] = "@function.outer",
             -- ["[["] = "@class.outer",
           },
           goto_previous_end = {
             ['[C'] = '@conditional.outer',
-            ['[F'] = '@loop.outer',
+            ['[P'] = '@loop.outer',
+            ['[F'] = '@function.outer',
             -- ["[M"] = "@function.outer",
             -- ["[]"] = "@class.outer",
           },

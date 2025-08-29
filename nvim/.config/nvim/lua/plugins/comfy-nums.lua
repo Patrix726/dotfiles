@@ -1,6 +1,7 @@
 return {
   'mluders/comfy-line-numbers.nvim',
   enabled = false,
+  cmd = 'ComfyLineNumbers',
   keys = {
     { '<leader>trn', mode = 'n', '<cmd>ComfyLineNumbers toggle<CR>', desc = 'Toggle relative number' },
   },
