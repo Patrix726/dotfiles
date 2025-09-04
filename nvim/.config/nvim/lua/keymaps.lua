@@ -5,7 +5,8 @@ local map = vim.keymap.set
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-map('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+map('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open file diagnostic [Q]uickfix list' })
+map('n', '<leader>D', vim.diagnostic.setqflist, { desc = 'Open Workspace diagnostic [Q]uickfix list' })
 map('n', '<leader>q', function()
   require('configs.qf').toggle_qf 'q'
 end, { desc = 'Toggle [Q]uickfix list' })
@@ -13,10 +14,9 @@ map('n', '<leader>_', function()
   require('configs.qf').toggle_qf 'l'
 end, { desc = 'Toggle [L]ocation list' })
 
+-- New file using snacks picker keymaps
 map('n', '<leader>cp', require('configs.new-file').create_path_in_folder, { desc = '[C]reate new file/folder/[P]ath in selected directory' })
 
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('t', '<C-h>', '<cmd>wincmd h<cr>', { desc = 'Move focus to the left window in terminal mode' })
 map('t', '<S-C-l>', '<cmd>wincmd l<cr>', { desc = 'Move focus to the right window in terminal mode' })
@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
+-- Custom Logging macros based on filetype
 vim.api.nvim_create_autocmd('FileType', {
   desc = 'Create a log keybind upon buffer filetype detection',
   group = vim.api.nvim_create_augroup('LogKeybind', { clear = true }),
@@ -63,16 +64,12 @@ map('n', '<leader>rs', function()
   end)
 end, { desc = 'Substitute last searched word with input with confirmation' })
 
-map('n', ';', ':', { desc = 'CMD enter command mode' })
-map({ 'n' }, ',', ';', { desc = 'Repeat last f or t command' })
-map({ 'n' }, ':', ',', { desc = 'Execute the inverse of the last f or t command' })
+map({ 'n', 'v' }, ';', ':', { desc = 'CMD enter command mode' })
+map({ 'n', 'v' }, ',', ';', { desc = 'Repeat last f or t command' })
+map({ 'n', 'v' }, ':', ',', { desc = 'Execute the inverse of the last f or t command' })
 map('n', 'ycc', 'yygccp', { remap = true, desc = 'Duplicate line and comment out original' })
 map({ 'n', 'v', 'o' }, 'H', '^', { desc = 'Go to the beginning of the line' })
 map({ 'n', 'v', 'o' }, 'L', '$', { desc = 'Go to the end of the line' })
-map('n', 'dH', 'd^', { desc = 'Delete upto beginning of line' })
-map('n', 'dL', 'd$', { desc = 'Delete upto end of line' })
-map('n', 'cH', 'c^', { desc = 'Cut upto beginning of line' })
-map('n', 'cL', 'c$', { desc = 'Cut upto end of line' })
 map('n', '<CR>', 'm`o<Esc>``', { desc = 'Insert new line below in normal mode' })
 map('n', '<S-CR>', 'm`O<Esc>``', { desc = 'Insert new line above in normal mode' })
 map('n', '<A-j>', ':m .+1<cr>==', { desc = 'Move current line to below' })
@@ -82,9 +79,9 @@ map('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines to above' })
 map('v', '<leader>p', '"_dP', { desc = 'Paste onto selected line and keep the paste value' })
 map('n', 'U', '<C-r>', { desc = 'Redo key' })
 map('i', 'jk', '<ESC>')
-map('n', '`', 'q', { desc = 'Start macro recording' })
-map('n', 'q', 'b', { desc = 'One word back' })
-map('n', 'b', '%', { desc = 'Complimenting bracket' })
+map({ 'n', 'v' }, '`', 'q', { desc = 'Start macro recording' })
+map({ 'n', 'v' }, 'q', 'b', { desc = 'One word back' })
+map({ 'n', 'v' }, 'b', '%', { desc = 'Complimenting bracket' })
 map('n', '<C-S>', ':w<CR>', { desc = 'Save file' })
 map('n', '<leader>wk', ':WhichKey<CR>', { desc = 'Open WhichKey dialog' })
 map('n', '<leader>/', 'gcc', { desc = 'toggle comment', remap = true })
@@ -92,11 +89,14 @@ map('v', '<leader>/', 'gc', { desc = 'toggle comment', remap = true })
 map('x', '/', '<Esc>/\\%V', { desc = 'Search within visually selected lines' })
 map('n', '<leader>trn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
 map('n', 'x', '"_x', { desc = 'Remap x to use the _ register' })
-map('n', '+', '<C-a>', { desc = 'Increment value' })
-map('n', '-', '<C-x>', { desc = 'Decrement value' })
+map({ 'n', 'v' }, '+', '<C-a>', { desc = 'Increment value' })
+map({ 'n', 'v' }, '-', '<C-x>', { desc = 'Decrement value' })
+map({ 'n', 'v' }, 'g+', 'g<C-a>', { desc = 'Context aware increment value' })
+map({ 'n', 'v' }, 'g-', 'g<C-x>', { desc = 'Context aware decrement value' })
 map('n', '<C-a>', 'gg<S-v>G', { desc = 'Select entire file' })
 map('n', '<leader>gp', '`[v`]', { desc = 'Select pasted text' })
 map('n', '[/', '[<c-i>', { desc = 'Get first occurence of word' })
+map('n', '<leader>hP', '<cmd>Gitsigns preview_hunk_inline<cr>', { desc = 'Toggle gitsigns hunk inline preview' })
 
 -- Navigate Open Buffers
 map('n', '<leader>x', ':bd<CR>', { desc = 'buffer close' })

@@ -15,6 +15,7 @@ vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
+vim.o.winborder = 'rounded'
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -107,3 +108,20 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.fn.sign_define('FoldClosed', { text = ' ', texthl = 'Folded' })
 -- vim.fn.sign_define('FoldOpen', { text = ' ', texthl = 'Folded' })
 -- vim.fn.sign_define('FoldSeparator', { text = ' ', texthl = 'Folded' })
+
+vim.opt.formatoptions = 'jcroqlnt'
+
+-- autocmds
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  pattern = { '*.md' },
+  callback = function()
+    vim.opt.textwidth = 80
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
+  pattern = { '*.md' },
+  callback = function()
+    vim.opt.textwidth = 120
+  end,
+})

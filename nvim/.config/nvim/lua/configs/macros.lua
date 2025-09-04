@@ -8,16 +8,6 @@ local log_table = {
   python = 'print',
 }
 
--- local function has_value(tab, val)
---   for index, value in ipairs(tab) do
---     if index == val then
---       return true
---     end
---   end
---
---   return false
--- end
-
 M.log = function()
   if log_table[vim.bo.filetype] then
     return 'yo' .. log_table[vim.bo.filetype] .. '("",)<Esc>2hP2lp'

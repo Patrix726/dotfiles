@@ -42,7 +42,7 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
-          file_ignore_patterns = { 'node_modules', '.git' },
+          file_ignore_patterns = { 'node_modules', '.git/', 'package-lock.json' },
         },
         pickers = {
           colorscheme = {
@@ -55,7 +55,7 @@ return {
           live_grep = {
             hidden = true,
             additional_args = function(opts)
-              return { '--hidden' }
+              return { '--hidden', '--fixed-strings' }
             end,
           },
         },

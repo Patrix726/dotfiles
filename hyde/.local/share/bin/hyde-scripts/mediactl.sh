@@ -7,14 +7,14 @@ action="$1"
 
 # Function to detect if anything is playing
 is_playing() {
-    playerctl status 2>/dev/null | grep -q "Playing"
+    playerctl status -a 2>/dev/null | grep -q "Playing"
 }
 
 case "$action" in
   playpause)
     if is_playing; then
         # Pause whatever is playing
-        playerctl pause
+        playerctl pause -a
     else
         # Nothing is playing → prefer mpd if running, else spotify
         if pgrep -x mpd >/dev/null; then

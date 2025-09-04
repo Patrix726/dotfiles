@@ -22,15 +22,18 @@ return {
     -- Of course, you can reduce the request frequency by increasing `suggestion.debounce`.
     auto_suggestions_provider = 'gemini',
     suggestion = {
-      debounce = 1000,
+      debounce = 500,
     },
     providers = {
       gemini = {
-        model = 'gemini-2.5-pro',
+        model = 'gemini-1.5-flash',
         -- extra_request_body = {
         --   temperature = 0.75,
         --   max_tokens = 4096,
         -- },
+      },
+      openai = {
+        model = 'gpt-4o-mini',
       },
     },
     input = {

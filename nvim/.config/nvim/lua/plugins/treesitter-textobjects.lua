@@ -8,11 +8,10 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          -- mappings for incremental selection (visual mappings)
-          init_selection = 'gt', -- maps in normal mode to init the node/scope selection
-          node_incremental = 'gtn', -- increment to the upper named parent
-          scope_incremental = 'gtc', -- increment to the upper scope (as defined in locals.scm)
-          node_decremental = 'gtm', -- decrement to the previous node
+          init_selection = '<C-space>',
+          node_incremental = '<C-space>',
+          scope_incremental = false,
+          node_decremental = '<bs>',
         },
       },
 
@@ -74,6 +73,9 @@ return {
         },
         select = {
           enable = true,
+          selection_modes = {
+            ['@function.outer'] = 'V', -- linewise
+          },
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
             ['af'] = '@function.outer',

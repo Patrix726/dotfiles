@@ -26,14 +26,14 @@ function spotsync() {
   local query="$1"
   local audio_src="$2"
   if [[ -z $query ]]; then
-    spotdl sync .spotdl
+    spotdl sync .spotdl --lyrics genius musixmatch
     return 1
   fi
   if [[ -z $audio_src ]]; then
-    spotdl sync "$query" --save-file .spotdl
+    spotdl sync "$query" --save-file .spotdl --lyrics genius musixmatch
     return 0
   fi
-  spotdl sync "$query" --save-file .spotdl --audio "$audio_src"
+  spotdl sync "$query" --save-file .spotdl --audio "$audio_src" --lyrics genius musixmatch
 }
 
 function help() {

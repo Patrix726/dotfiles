@@ -1,4 +1,19 @@
 [[mgr.prepend_keymap]]
+on   = [ "g", "m" ]
+run  = "cd /mnt/668E28458E280FDB/Movies"
+desc = "go to Movies"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "D" ]
+run  = "cd /mnt/668E28458E280FDB/Downloads"
+desc = "go to New Volume/Downloads"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "n" ]
+run  = "cd /mnt/668E28458E280FDB"
+desc = "go to New Volume"
+
+[[mgr.prepend_keymap]]
 on   = [ "g", "w" ]
 run  = "cd ~/Documents/Code/Web"
 desc = "go to Web"
