@@ -4,8 +4,8 @@ scrDir="$(dirname "$(realpath "$0")")"
 source "${scrDir}/globalcontrol.sh"
 ROCONF="${confDir}/rofi/todos.rasi"
 
-GROUP_NAMES=("My Day" "Todos" "Checkout")
-GROUP_CMDS=("todolist myday" "todolist general" "todolist movie")
+GROUP_NAMES=()
+GROUP_CMDS=()
 
 # Initialize groups from ~/.todos (only *.todo, sorted by creation date)
 init_groups() {
@@ -18,10 +18,10 @@ init_groups() {
         local base
         base="$(basename "$file" .todo)"      # strip extension
         GROUP_NAMES+=("$base")
-        GROUP_CMDS+=("todolist ${base,,}")    # lowercase for command arg
+        GROUP_CMDS+=("todolist ${base}")    # lowercase for command arg
     done < <(
         find "$todo_dir" -maxdepth 1 -type f -name '*.todo' -printf '%T@ %p\n' \
-        | sort -n | awk '{print $2}'
+        | awk '{print $2}' | sort
     )
 }
 # Show a menu and return the selected item (with key handling)
@@ -102,7 +102,7 @@ main() {
          # Handle custom group (dot prefix)
         if [[ "$group" == .* ]]; then
             local new_group="${group#.}"               # strip leading dot
-            local new_cmd="todolist ${new_group,,}"    # lowercase command arg
+            local new_cmd="todolist ${new_group}"    # lowercase command arg
 
             # Append to arrays
             GROUP_NAMES+=("$new_group")
