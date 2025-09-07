@@ -3,51 +3,17 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  {
-    dir = vim.fn.stdpath 'data' .. '/lazy/chameleon.nvim',
-    lazy = false,
-    enabled = false,
-    -- priority = 900,
-    config = function()
-      require('chameleon').setup {
-
-        hyde = false,
-      }
-    end,
-    dependencies = {
-      'folke/snacks.nvim',
-      'nvim-lua/plenary.nvim',
-    },
-  },
-  {
-    dir = vim.fn.stdpath 'config' .. '/lua/ui',
-    lazy = false,
-    priority = 900,
-    config = function()
-      require('ui').setup()
-    end,
-  },
   { 'NMAC427/guess-indent.nvim', opts = {} },
   {
-    'NeogitOrg/neogit',
-    keys = {
-      { '<leader>gi', mode = 'n', ':Neogit<CR>', noremap = true, desc = 'Open Neogit dashboard' },
-    },
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'sindrets/diffview.nvim',
-      'nvim-telescope/telescope.nvim',
-    },
-  },
-  {
     'MeanderingProgrammer/render-markdown.nvim',
-    ft = { 'markdown' },
+    ft = { 'markdown', 'Avante' },
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = { completions = {
-      blink = { enabled = true },
-    } },
+    opts = {
+      completions = { blink = { enabled = true } },
+      file_types = { 'markdown', 'Avante' },
+    },
   },
   {
     'chentoast/marks.nvim',
@@ -83,10 +49,10 @@ return {
     'vuciv/golf',
     cmd = 'Golf',
     keys = {
-      { '<leader>oge', mode = { 'n' }, '<cmd>Golf easy<CR>', desc = 'Open golf problem of easy difficulty' },
-      { '<leader>ogm', mode = { 'n' }, '<cmd>Golf medium<CR>', desc = 'Open golf problem of medium difficulty' },
-      { '<leader>ogh', mode = { 'n' }, '<cmd>Golf hard<CR>', desc = 'Open golf problem of hard difficulty' },
-      { '<leader>ogt', mode = { 'n' }, '<cmd>Golf today<CR>', desc = "Open today's golf problem" },
+      { '<leader>oge', mode = { 'n' }, '<cmd>Golf easy<CR>', desc = 'Golf: Open an easy problem' },
+      { '<leader>ogm', mode = { 'n' }, '<cmd>Golf medium<CR>', desc = 'Golf: Open a medium problem' },
+      { '<leader>ogh', mode = { 'n' }, '<cmd>Golf hard<CR>', desc = 'Golf: Open a hard problem' },
+      { '<leader>ogt', mode = { 'n' }, '<cmd>Golf today<CR>', desc = "Golf: Open today's problem" },
     },
   },
 }

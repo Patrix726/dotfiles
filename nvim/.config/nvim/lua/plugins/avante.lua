@@ -4,7 +4,7 @@ return {
   -- ⚠️ must add this setting! ! !
   build = vim.fn.has 'win32' ~= 0 and 'powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false' or 'make',
   event = 'VeryLazy',
-  enabled = true,
+  enabled = false,
   version = false, -- Never set this value to "*"! Never!
   ---@module 'avante'
   ---@type avante.Config
@@ -26,7 +26,7 @@ return {
     },
     providers = {
       gemini = {
-        model = 'gemini-1.5-flash',
+        model = 'gemini-2.0-flash',
         -- extra_request_body = {
         --   temperature = 0.75,
         --   max_tokens = 4096,
@@ -49,6 +49,7 @@ return {
     'MunifTanjim/nui.nvim',
     'nvim-telescope/telescope.nvim', -- for file_selector provider telescope
     'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
+    'MeanderingProgrammer/render-markdown.nvim',
     -- {
     --   -- support for image pasting
     --   'HakonHarnes/img-clip.nvim',
@@ -65,14 +66,6 @@ return {
     --       use_absolute_path = true,
     --     },
     --   },
-    -- },
-    -- {
-    --   -- Make sure to set this up properly if you have lazy=true
-    --   'MeanderingProgrammer/render-markdown.nvim',
-    --   opts = {
-    --     file_types = { 'markdown', 'Avante' },
-    --   },
-    --   ft = { 'markdown', 'Avante' },
     -- },
   },
 }

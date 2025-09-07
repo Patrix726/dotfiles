@@ -49,6 +49,25 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_user_command('FormatDisable', function(args)
+  if args.bang then
+    -- FormatDisable! will disable formatting just for this buffer
+    vim.b.disable_autoformat = true
+  else
+    vim.g.disable_autoformat = true
+  end
+end, {
+  desc = 'Disable autoformat-on-save',
+  bang = true,
+})
+
+vim.api.nvim_create_user_command('FormatEnable', function()
+  vim.b.disable_autoformat = false
+  vim.g.disable_autoformat = false
+end, {
+  desc = 'Re-enable autoformat-on-save',
+})
+
 -- Search and replace
 map('n', '<leader>ra', function()
   local search_term = vim.fn.getreg '/'
@@ -64,6 +83,17 @@ map('n', '<leader>rs', function()
   end)
 end, { desc = 'Substitute last searched word with input with confirmation' })
 
+map('n', '<leader>tt', require('configs.bufferline').toggle_bufferline, { desc = 'Toggle bufferline' })
+map('n', '<leader>tc', '<cmd>TSContext toggle<cr>', { desc = 'Toggle treesitter context' })
+map('n', '<leader>tf', function()
+  if vim.g.disable_autoformat then
+    vim.cmd ':FormatEnable'
+    Snacks.notify.info 'Auto formatting enabled'
+  else
+    vim.cmd ':FormatDisable'
+    Snacks.notify.info 'Auto formatting disabled'
+  end
+end, { desc = 'Toggle auto format on save' })
 map({ 'n', 'v' }, ';', ':', { desc = 'CMD enter command mode' })
 map({ 'n', 'v' }, ',', ';', { desc = 'Repeat last f or t command' })
 map({ 'n', 'v' }, ':', ',', { desc = 'Execute the inverse of the last f or t command' })
@@ -110,12 +140,12 @@ map('n', '<S-C-j>', ':tabnext<CR>', { desc = 'Tab goto next' })
 map('n', '<S-C-k>', ':tabprevious<CR>', { desc = 'Tab goto previous' })
 
 -- Persistence Keybinds
-map('n', '<leader>oS', require('persistence').load, { desc = 'Load the session for the current directory' })
-map('n', '<leader>os', require('persistence').select, { desc = 'Select a session to load' })
-map('n', '<leader>ol', function()
+map('n', '<leader>osS', require('persistence').load, { desc = 'Load the session for the current directory' })
+map('n', '<leader>oss', require('persistence').select, { desc = 'Select a session to load' })
+map('n', '<leader>osl', function()
   require('persistence').load { last = true }
 end, { desc = 'Load the last session' })
-map('n', '<leader>od', require('persistence').stop, { desc = "Stop persistence session | Won't be saved on exit" })
+map('n', '<leader>osd', require('persistence').stop, { desc = "Stop persistence session | Won't be saved on exit" })
 
 -- Snacks scratch keymaps
 map('n', '<leader>ts', require('snacks').scratch.open, { desc = 'Toggle scratch buffer instance' })

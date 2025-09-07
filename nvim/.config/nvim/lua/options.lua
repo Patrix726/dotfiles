@@ -76,6 +76,7 @@ vim.o.confirm = true
 
 -- Show the bufferline if the number of buffers is greater than 1
 vim.o.showtabline = 1
+vim.g.buffer_line_enabled = true
 
 -- Set tab width to be 4 spaces
 vim.o.tabstop = 4
@@ -111,6 +112,7 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.opt.formatoptions = 'jcroqlnt'
 
+vim.o.laststatus = 3
 -- autocmds
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = { '*.md' },
