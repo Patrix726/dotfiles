@@ -14,7 +14,20 @@ return {
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
-    require('mini.surround').setup()
+    require('mini.surround').setup {
+      custom_surroundings = {
+        t = {
+          input = { '<(%w-)%f[^<%w][^<>]->.-</%1>', '^<.->().*()</[^/]->$' }, -- from https://github.com/echasnovski/mini.surround/blob/14f418209ecf52d1a8de9d091eb6bd63c31a4e01/lua/mini/surround.lua#LL1048C13-L1048C72
+          output = function()
+            local emmet = require('mini.surround').user_input 'Emmet'
+            if not emmet then
+              return nil
+            end
+            return require('configs.mini-emmet').totag(emmet)
+          end,
+        },
+      },
+    }
 
     require('mini.basics').setup {
       autocommands = {
