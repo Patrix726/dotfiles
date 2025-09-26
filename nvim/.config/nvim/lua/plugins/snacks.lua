@@ -1,6 +1,25 @@
 return {
   'folke/snacks.nvim',
+  ---@type snacks.Config
   opts = {
+    ---@type table<string, snacks.win.Config>
+    styles = {
+
+      scratch = {
+        width = 120,
+        height = 30,
+        bo = { buftype = '', buflisted = false, bufhidden = 'hide', swapfile = false },
+        minimal = false,
+        noautocmd = false,
+        -- position = "right",
+        zindex = 20,
+        wo = { winhighlight = 'NormalFloat:Normal' },
+        border = 'rounded',
+        title_pos = 'center',
+        footer_pos = 'center',
+      },
+    },
+
     ---@class snacks.dashboard.Config
     ---@field enabled? boolean
     ---@field sections snacks.dashboard.Section
@@ -29,6 +48,7 @@ return {
         },
       },
     },
+
     notifier = {},
     indent = {},
     scratch = {

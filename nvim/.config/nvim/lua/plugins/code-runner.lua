@@ -6,6 +6,10 @@ return {
         'cd $dir &&',
         'go run $fileName &&',
       },
+      dart = {
+        'cd $dir &&',
+        'dart $fileName &&',
+      },
     },
   },
   keys = {

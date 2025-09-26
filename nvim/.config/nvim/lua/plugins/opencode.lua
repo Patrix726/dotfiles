@@ -1,11 +1,16 @@
 return {
   'NickvanDyke/opencode.nvim',
-  dependencies = { 'folke/snacks.nvim' },
-  ---@type opencode.Config
-  opts = {
-    -- Your configuration, if any
-  },
   enabled = true,
+  dependencies = { 'folke/snacks.nvim' },
+  config = function()
+    ---@type opencode.Opts
+    vim.g.opencode_opts = {
+      -- Your configuration, if any — see `lua/opencode/config.lua`
+    }
+
+    -- Required for `opts.auto_reload`
+    vim.opt.autoread = true
+  end,
   -- stylua: ignore
   keys = {
     { '<leader>ot', function() require('opencode').toggle() end, desc = 'Opencode: Toggle', },

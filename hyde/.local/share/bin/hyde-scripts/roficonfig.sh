@@ -30,7 +30,7 @@ CONFIG_PATH="$CONFIGS_DIR/$CHOICE"
 
 # Check if the path exists
 if [ -d "$CONFIG_PATH" ]; then
-  kitty --title "Editing $CHOICE config" nvim "$CONFIG_PATH"
+  kitty --title "Editing $CHOICE config" --directory "$CONFIG_PATH" nvim "$CONFIG_PATH"
 else
   notify-send "Config not found: $CONFIG_PATH"
   exit 1

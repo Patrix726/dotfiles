@@ -5,8 +5,8 @@ local map = vim.keymap.set
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-map('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open file diagnostic [Q]uickfix list' })
-map('n', '<leader>D', vim.diagnostic.setqflist, { desc = 'Open Workspace diagnostic [Q]uickfix list' })
+map('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open file diagnostic [Q]uickfix list' })
+map('n', '<leader>dQ', vim.diagnostic.setqflist, { desc = 'Open Workspace diagnostic [Q]uickfix list' })
 map('n', '<leader>q', function()
   require('configs.qf').toggle_qf 'q'
 end, { desc = 'Toggle [Q]uickfix list' })
@@ -85,6 +85,9 @@ end, { desc = 'Substitute last searched word with input with confirmation' })
 
 map('n', '<leader>tt', require('configs.bufferline').toggle_bufferline, { desc = 'Toggle bufferline' })
 map('n', '<leader>tc', '<cmd>TSContext toggle<cr>', { desc = 'Toggle treesitter context' })
+map('n', '<M-n>', function()
+  Snacks.notifier.show_history()
+end, { desc = 'Show snacks notification history' })
 map('n', '<leader>tf', function()
   if vim.g.disable_autoformat then
     vim.cmd ':FormatEnable'
@@ -102,11 +105,8 @@ map({ 'n', 'v', 'o' }, 'H', '^', { desc = 'Go to the beginning of the line' })
 map({ 'n', 'v', 'o' }, 'L', '$', { desc = 'Go to the end of the line' })
 map('n', '<CR>', 'm`o<Esc>``', { desc = 'Insert new line below in normal mode' })
 map('n', '<S-CR>', 'm`O<Esc>``', { desc = 'Insert new line above in normal mode' })
-map('n', '<A-j>', ':m .+1<cr>==', { desc = 'Move current line to below' })
-map('n', '<A-k>', ':m .-2<cr>==', { desc = 'Move current line to above' })
-map('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines to below' })
-map('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines to above' })
-map('v', '<leader>p', '"_dP', { desc = 'Paste onto selected line and keep the paste value' })
+map('v', '<leader>p', '"_dp', { desc = 'Paste next to cursor and keep the paste value' })
+map('v', '<leader>P', '"_dP', { desc = 'Paste previous to cursor and keep the paste value' })
 map('n', 'U', '<C-r>', { desc = 'Redo key' })
 map('i', 'jk', '<ESC>')
 map({ 'n', 'v' }, '`', 'q', { desc = 'Start macro recording' })
@@ -128,8 +128,14 @@ map('n', '<leader>gp', '`[v`]', { desc = 'Select pasted text' })
 map('n', '[/', '[<c-i>', { desc = 'Get first occurence of word' })
 map('n', '<leader>hP', '<cmd>Gitsigns preview_hunk_inline<cr>', { desc = 'Toggle gitsigns hunk inline preview' })
 
+-- Navigate to and from quotation marks of all kinds
+map({ 'n', 'o', 'x' }, "]'", [[/\v("|'|`)[^"'`]*\1<CR><cmd>nohlsearch<CR>]], { desc = 'Jump forwards to the next pair of quotes' })
+map({ 'n', 'o', 'x' }, "['", [[?\v("|'|`)[^"'`]*\1<CR><cmd>nohlsearch<CR>]], { desc = 'Jump backwards to the previous pair of quotes' })
+map({ 'n', 'o', 'x' }, ']"', [[/\v("|'|`)[^"'`]*\zs\1<CR><cmd>nohlsearch<CR>]], { desc = 'Jump forwards to the next closing quote (", \', `)' })
+map({ 'n', 'o', 'x' }, '["', [[?\v("|'|`)[^"'`]*\zs\1<CR><cmd>nohlsearch<CR>]], { desc = 'Jump backwards to the previous closing quote (", \', `)' })
+
 -- Navigate Open Buffers
-map('n', '<leader>x', ':bd<CR>', { desc = 'buffer close' })
+map('n', '<leader>x', '<cmd>bp<CR><cmd>bd#<CR>', { desc = 'buffer close' })
 map('n', '<tab>', ':bn<CR>', { desc = 'buffer goto next' })
 map('n', '<S-tab>', ':bp<CR>', { desc = 'buffer goto previous' })
 

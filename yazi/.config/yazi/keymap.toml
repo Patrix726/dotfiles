@@ -54,6 +54,6 @@ run  = "plugin what-size"
 desc = "Calc size of selection or cwd" 
 
 [[input.prepend_keymap]]
-on   = "<Esc>"
+on   = [ "<S-Esc>" ]
 run  = "close"
 desc = "Cancel input"

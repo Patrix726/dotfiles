@@ -13,7 +13,7 @@ local function collect_dirs()
 
   for _, abs in ipairs(dirs) do
     -- Skip the cwd itself and .git
-    if abs ~= (cwd .. '/') and not abs:find '/%.git/' then
+    if abs ~= (cwd .. '/') and not abs:find '/%.git/' and not abs:find '/%node_modules/' then
       local rel = abs:gsub('^' .. vim.pesc(cwd) .. '/?', ''):gsub('/$', '')
       table.insert(items, { text = rel, value = abs:gsub('/$', '') })
     end

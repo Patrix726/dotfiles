@@ -5,10 +5,10 @@ return { -- Linting
     local lint = require 'lint'
     lint.linters_by_ft = {
       markdown = { 'markdownlint' },
-      javascript = { 'eslint_d' },
-      javascriptreact = { 'eslint_d' },
-      typescript = { 'eslint_d' },
-      typescriptreact = { 'eslint_d' },
+      javascript = { 'eslint' },
+      javascriptreact = { 'eslint' },
+      typescript = { 'eslint' },
+      typescriptreact = { 'eslint' },
     }
 
     lint.linters.markdownlint = require('lint.util').wrap(lint.linters.markdownlint, function(diagnostic)

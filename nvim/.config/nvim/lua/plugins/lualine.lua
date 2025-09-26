@@ -24,7 +24,16 @@ return {
         theme = 'auto',
         component_separators = '',
         -- section_separators = { left = ' ', right = ' ' },
-        disabled_filetypes = { 'alpha', 'Outline' },
+        disabled_filetypes = {
+          'alpha',
+          'Outline',
+          'dapui_watches',
+          'dapui_breakpoints',
+          'dapui_scopes',
+          'dapui_console',
+          'dapui_stacks',
+          'dap-repl',
+        },
       },
       sections = {
         lualine_a = {
@@ -69,7 +78,7 @@ return {
         lualine_y = {},
         lualine_z = { 'location' },
       },
-      extensions = { 'toggleterm', 'trouble', 'avante', 'quickfix', 'aerial' },
+      extensions = { 'toggleterm', 'trouble', 'avante', 'quickfix', 'aerial', 'nvim-dap-ui' },
     }
   end,
 }

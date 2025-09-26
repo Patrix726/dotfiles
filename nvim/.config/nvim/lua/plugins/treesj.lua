@@ -1,5 +1,6 @@
 return {
   'Wansmer/treesj',
+  enabled = true,
   -- event = 'BufEnter',
   keys = {
     {

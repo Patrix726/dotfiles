@@ -14,7 +14,7 @@ return {
     end,
   },
   keys = {
-    { '<A-h>', mode = { 'n', 't' }, '<cmd>ToggleTerm direction=horizontal<cr>', desc = 'Toggle horizontal terminal' },
+    { '<A-t>', mode = { 'n', 't' }, '<cmd>ToggleTerm direction=horizontal<cr>', desc = 'Toggle horizontal terminal' },
     { '<A-v>', mode = { 'n', 't' }, '<cmd>ToggleTerm direction=vertical<cr>', desc = 'Toggle vertical terminal' },
     { '<A-f>', mode = { 'n', 't' }, '<cmd>ToggleTerm direction=float<cr>', desc = 'Toggle float terminal' },
   },
