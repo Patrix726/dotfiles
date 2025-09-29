@@ -4,6 +4,7 @@ return {
     -- your own inverses
     inverses = {
       ['!=='] = '===',
+      ['dark'] = 'light',
     },
     -- removes the default <leader>i keymap
     remove_default_keybinds = true,
