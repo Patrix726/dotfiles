@@ -1,3 +1,4 @@
+---@module "snacks"
 return {
   'folke/snacks.nvim',
   ---@type snacks.Config
@@ -80,28 +81,25 @@ return {
       },
     },
     input = {},
-    bigfile =
-      ---@class snacks.bigfile.Config
-      ---@field enabled? boolean
-      {
-        notify = true, -- show notification when big file detected
-        size = 1.5 * 1024 * 1024, -- 1.5MB
-        line_length = 500, -- average line length (useful for minified files)
-        -- Enable or disable features when big file detected
-        ---@param ctx {buf: number, ft:string}
-        setup = function(ctx)
-          if vim.fn.exists ':NoMatchParen' ~= 0 then
-            vim.cmd [[NoMatchParen]]
+    bigfile = {
+      notify = true, -- show notification when big file detected
+      size = 1.5 * 1024 * 1024, -- 1.5MB
+      line_length = 500, -- average line length (useful for minified files)
+      -- Enable or disable features when big file detected
+      ---@param ctx {buf: number, ft:string}
+      setup = function(ctx)
+        if vim.fn.exists ':NoMatchParen' ~= 0 then
+          vim.cmd [[NoMatchParen]]
+        end
+        Snacks.util.wo(0, { foldmethod = 'manual', statuscolumn = '', conceallevel = 0 })
+        vim.b.minianimate_disable = true
+        vim.schedule(function()
+          if vim.api.nvim_buf_is_valid(ctx.buf) then
+            vim.bo[ctx.buf].syntax = ctx.ft
           end
-          Snacks.util.wo(0, { foldmethod = 'manual', statuscolumn = '', conceallevel = 0 })
-          vim.b.minianimate_disable = true
-          vim.schedule(function()
-            if vim.api.nvim_buf_is_valid(ctx.buf) then
-              vim.bo[ctx.buf].syntax = ctx.ft
-            end
-          end)
-        end,
-      },
+        end)
+      end,
+    },
     statuscolumn = {
       left = { 'mark', 'sign', 'git' }, -- priority of signs on the left (high to low)
       right = { 'fold' }, -- priority of signs on the right (high to low)
@@ -114,6 +112,43 @@ return {
         patterns = { 'GitSign', 'MiniDiffSign' },
       },
       refresh = 50, -- refresh at most every 50ms
+    },
+  },
+  keys = {
+    {
+      '<leader>gl',
+      function()
+        Snacks.picker.git_log()
+      end,
+      desc = 'Git Log',
+    },
+    {
+      '<leader>gb',
+      function()
+        Snacks.git.blame_line()
+      end,
+      desc = 'Git Blame Line',
+    },
+    {
+      '<leader>gf',
+      function()
+        Snacks.picker.git_log_file()
+      end,
+      desc = 'Git Log File',
+    },
+    {
+      '<leader>bd',
+      function()
+        Snacks.bufdelete()
+      end,
+      desc = 'Delete Buffer',
+    },
+    {
+      '<leader>bo',
+      function()
+        Snacks.bufdelete.other()
+      end,
+      desc = 'Delete Other Buffers',
     },
   },
 }

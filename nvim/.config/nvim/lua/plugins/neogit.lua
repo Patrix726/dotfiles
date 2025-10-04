@@ -1,7 +1,7 @@
 return {
   'NeogitOrg/neogit',
   keys = {
-    { '<leader>gi', mode = 'n', ':Neogit<CR>', noremap = true, desc = 'Open Neogit dashboard' },
+    { '<leader>gi', mode = 'n', ':Neogit<CR>', noremap = true, desc = 'Neogit dashboard' },
   },
   opts = {
     graph_style = 'kitty',

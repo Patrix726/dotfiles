@@ -91,6 +91,7 @@ return {
                   if require('blink.cmp.sources.lsp.hacks.tailwind').get_hex_color(ctx.item) then
                     return '󱓻'
                   end
+
                   -- if LSP source, check for color derived from documentation
                   -- if ctx.item.source_name == 'LSP' then
                   --   local color_item = require('nvim-highlight-colors').format(ctx.item.documentation, { kind = ctx.kind })
@@ -98,7 +99,23 @@ return {
                   --     icon = color_item.abbr
                   --   end
                   -- end
+                  if vim.tbl_contains({ 'Path' }, ctx.source_name) then
+                    local dev_icon, _ = require('nvim-web-devicons').get_icon(ctx.label)
+                    if dev_icon then
+                      icon = dev_icon
+                    end
+                  end
                   return icon .. ctx.icon_gap
+                end,
+                highlight = function(ctx)
+                  local hl = 'BlinkCmpKind' .. ctx.kind or require('blink.cmp.completion.windows.render.tailwind').get_hl(ctx)
+                  if vim.tbl_contains({ 'Path' }, ctx.source_name) then
+                    local dev_icon, dev_hl = require('nvim-web-devicons').get_icon(ctx.label)
+                    if dev_icon then
+                      hl = dev_hl
+                    end
+                  end
+                  return hl
                 end,
               },
             },
@@ -129,7 +146,7 @@ return {
       -- the rust implementation via `'prefer_rust_with_warning'`
       --
       -- See :h blink-cmp-config-fuzzy for more information
-      fuzzy = { implementation = 'lua' },
+      fuzzy = { implementation = 'prefer_rust_with_warning' },
 
       -- Shows a signature help window while you type arguments for a function
       signature = { enabled = true },

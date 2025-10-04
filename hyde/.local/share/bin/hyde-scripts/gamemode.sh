@@ -19,11 +19,16 @@ if [ $HYPRGAMEMODE = 1 ]; then
         keyword animations:enabled 0;\
         keyword decoration:drop_shadow 0;\
         keyword decoration:blur:enabled 0;\
+	keyword decoration:fullscreen_opacity 1;\
         keyword general:gaps_in 0;\
         keyword general:gaps_out 0;\
         keyword general:border_size 1;\
         keyword decoration:rounding 0"
-	exit
+
+        hyprctl clients -j | jq -r ".[].address" | xargs -I {} hyprctl dispatch setprop address:{} opaque 1
+        exit
 else
+        # hyprctl clients -j | jq -r ".[].address" | xargs -I {} hyprctl dispatch setprop address:{} opaque toggle
+        hyprctl clients -j | jq -r ".[].address" | xargs -I {} hyprctl dispatch setprop address:{} opaque 0
 	hyprctl reload
 fi

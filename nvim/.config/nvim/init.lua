@@ -13,6 +13,9 @@ end
 -- [[ Setting options ]]
 require 'options'
 
+-- [[ Setting autocmds ]]
+require 'autocmds'
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'
 

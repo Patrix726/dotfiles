@@ -47,4 +47,13 @@ return {
     'nyoom-engineering/oxocarbon.nvim',
     config = function() end,
   },
+  {
+    'folke/tokyonight.nvim',
+    priority = 1000,
+    opts = {
+      styles = {
+        comments = { italic = false }, -- Disable italics in comments
+      },
+    },
+  },
 }

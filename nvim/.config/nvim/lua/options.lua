@@ -94,16 +94,6 @@ vim.o.foldmethod = 'expr'
 
 -- Default to treesitter folding
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
--- Prefer LSP folding if client supports it
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client:supports_method 'textDocument/foldingRange' then
-      local win = vim.api.nvim_get_current_win()
-      vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
-    end
-  end,
-})
 
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.fn.sign_define('FoldClosed', { text = ' ', texthl = 'Folded' })
@@ -113,17 +103,3 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.formatoptions = 'jcroqlnt'
 
 vim.o.laststatus = 3
--- autocmds
-vim.api.nvim_create_autocmd('BufWinEnter', {
-  pattern = { '*.md' },
-  callback = function()
-    vim.opt.textwidth = 80
-  end,
-})
-
-vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
-  pattern = { '*.md' },
-  callback = function()
-    vim.opt.textwidth = 120
-  end,
-})

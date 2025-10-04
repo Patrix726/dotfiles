@@ -1,3 +1,5 @@
+---@module "snacks"
+
 -- [[ Basic Keymaps ]]
 local map = vim.keymap.set
 
@@ -15,7 +17,7 @@ map('n', '<leader>_', function()
 end, { desc = 'Toggle [L]ocation list' })
 
 -- New file using snacks picker keymaps
-map('n', '<leader>cp', require('configs.new-file').create_path_in_folder, { desc = '[C]reate new file/folder/[P]ath in selected directory' })
+-- map('n', '<leader>cp', require('configs.new-file').create_path_in_folder, { desc = '[C]reate new file/folder/[P]ath in selected directory' })
 
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('t', '<C-h>', '<cmd>wincmd h<cr>', { desc = 'Move focus to the left window in terminal mode' })
@@ -29,44 +31,6 @@ map('n', '<M-S-h>', '<C-w>H', { desc = 'Move window to the left' })
 map('n', '<M-S-l>', '<C-w>L', { desc = 'Move window to the right' })
 map('n', '<M-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
 map('n', '<M-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
-
--- Remove the Enter remap in the quickfix window
-vim.api.nvim_create_autocmd('BufReadPost', {
-  desc = 'Remap enter to default in quickfix windows',
-  group = vim.api.nvim_create_augroup('quickfix-remap', { clear = true }),
-  callback = function()
-    vim.cmd [[autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>]]
-  end,
-})
-
--- Custom Logging macros based on filetype
-vim.api.nvim_create_autocmd('FileType', {
-  desc = 'Create a log keybind upon buffer filetype detection',
-  group = vim.api.nvim_create_augroup('LogKeybind', { clear = true }),
-  pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'python' },
-  callback = function()
-    map('v', '<leader>l', require('configs.macros').log(), { desc = 'Log selected value' })
-  end,
-})
-
-vim.api.nvim_create_user_command('FormatDisable', function(args)
-  if args.bang then
-    -- FormatDisable! will disable formatting just for this buffer
-    vim.b.disable_autoformat = true
-  else
-    vim.g.disable_autoformat = true
-  end
-end, {
-  desc = 'Disable autoformat-on-save',
-  bang = true,
-})
-
-vim.api.nvim_create_user_command('FormatEnable', function()
-  vim.b.disable_autoformat = false
-  vim.g.disable_autoformat = false
-end, {
-  desc = 'Re-enable autoformat-on-save',
-})
 
 -- Search and replace
 map('n', '<leader>ra', function()
@@ -117,7 +81,7 @@ map('n', '<leader>wk', ':WhichKey<CR>', { desc = 'Open WhichKey dialog' })
 map('n', '<leader>/', 'gcc', { desc = 'toggle comment', remap = true })
 map('v', '<leader>/', 'gc', { desc = 'toggle comment', remap = true })
 map('x', '/', '<Esc>/\\%V', { desc = 'Search within visually selected lines' })
-map('n', '<leader>trn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
+-- map('n', '<leader>trn', '<cmd>set rnu!<CR>', { desc = 'Toggle relative number' })
 map('n', 'x', '"_x', { desc = 'Remap x to use the _ register' })
 map({ 'n', 'v' }, '+', '<C-a>', { desc = 'Increment value' })
 map({ 'n', 'v' }, '-', '<C-x>', { desc = 'Decrement value' })
@@ -127,6 +91,14 @@ map('n', '<C-a>', 'gg<S-v>G', { desc = 'Select entire file' })
 map('n', '<leader>gp', '`[v`]', { desc = 'Select pasted text' })
 map('n', '[/', '[<c-i>', { desc = 'Get first occurence of word' })
 map('n', '<leader>hP', '<cmd>Gitsigns preview_hunk_inline<cr>', { desc = 'Toggle gitsigns hunk inline preview' })
+
+-- Go to next and previous error
+map('n', ']e', function()
+  vim.diagnostic.jump { severity = vim.diagnostic.severity.ERROR, wrap = true, float = true, count = 1 }
+end, { desc = 'Error forward' })
+map('n', '[e', function()
+  vim.diagnostic.jump { severity = vim.diagnostic.severity.ERROR, wrap = true, float = true, count = -1 }
+end, { desc = 'Error backward' })
 
 -- Navigate to and from quotation marks of all kinds
 map({ 'n', 'o', 'x' }, "]'", [[/\v("|'|`)[^"'`]*\1<CR><cmd>nohlsearch<CR>]], { desc = 'Jump forwards to the next pair of quotes' })
@@ -155,7 +127,7 @@ map('n', '<leader>osd', require('persistence').stop, { desc = "Stop persistence 
 
 -- Snacks scratch keymaps
 map('n', '<leader>ts', require('snacks').scratch.open, { desc = 'Toggle scratch buffer instance' })
-map('n', '<leader>sS', require('snacks').scratch.select, { desc = 'Select from scranch instances' })
+map('n', '<leader>sS', require('snacks').scratch.select, { desc = 'Snacks: Select from scranch instances' })
 
 -- Lens line keymaps
 map('n', '\\g', '<cmd>LenslineToggle<cr>', { desc = 'Toggle lens line' })

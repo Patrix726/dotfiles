@@ -1,5 +1,6 @@
 return {
   'j-morano/buffer_manager.nvim',
+  enabled = false,
   opts = {
     select_menu_item_commands = {
       v = {
@@ -39,7 +40,7 @@ return {
     end
 
     -- Just the menu
-    map({ 't', 'n' }, '<M-Space>', bmui.toggle_quick_menu, opts)
+    map({ 't', 'n' }, '<M-Space>', bmui.toggle_quick_menu, { desc = 'Open buffer manager menu', noremap = true })
 
     -- Open menu and search
     map({ 't', 'n' }, '<M-m>', function()

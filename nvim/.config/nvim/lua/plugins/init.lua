@@ -46,16 +46,6 @@ return {
     opts = {},
   },
   {
-    'vuciv/golf',
-    cmd = 'Golf',
-    keys = {
-      { '<leader>oge', mode = { 'n' }, '<cmd>Golf easy<CR>', desc = 'Golf: Open an easy problem' },
-      { '<leader>ogm', mode = { 'n' }, '<cmd>Golf medium<CR>', desc = 'Golf: Open a medium problem' },
-      { '<leader>ogh', mode = { 'n' }, '<cmd>Golf hard<CR>', desc = 'Golf: Open a hard problem' },
-      { '<leader>ogt', mode = { 'n' }, '<cmd>Golf today<CR>', desc = "Golf: Open today's problem" },
-    },
-  },
-  {
     'm4xshen/hardtime.nvim',
     dependencies = { 'MunifTanjim/nui.nvim' },
     opts = {
