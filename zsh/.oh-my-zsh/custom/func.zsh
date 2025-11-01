@@ -57,3 +57,7 @@ function help() {
   echo "Could not find help documentation for '$command_name'."
   return 1
 }
+
+function zs() {
+  zesh cn "$(zesh l | fzf)"
+}

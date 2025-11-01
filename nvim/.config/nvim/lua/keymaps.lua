@@ -52,6 +52,15 @@ map('n', '<leader>tc', '<cmd>TSContext toggle<cr>', { desc = 'Toggle treesitter 
 map('n', '<M-n>', function()
   Snacks.notifier.show_history()
 end, { desc = 'Show snacks notification history' })
+map('n', '<leader>tF', function()
+  if vim.g.disable_autosort then
+    vim.cmd ':ImportSortEnable'
+    Snacks.notify.info 'Auto import sorting enabled'
+  else
+    vim.cmd ':ImportSortDisable'
+    Snacks.notify.info 'Auto import sorting disabled'
+  end
+end, { desc = 'Toggle auto import sorting on save' })
 map('n', '<leader>tf', function()
   if vim.g.disable_autoformat then
     vim.cmd ':FormatEnable'

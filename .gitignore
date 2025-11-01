@@ -79,3 +79,5 @@ spell/
 lazy-lock.json
 
 yazi/.config/yazi/plugins/
+
+nvim/.config/nvim/lua/ui/theme.lua

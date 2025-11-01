@@ -1,5 +1,7 @@
 return {
-  'patrix726/new-file.nvim',
+  -- 'patrix726/new-file.nvim',
+
+  dir = '~/Documents/Code/Personal/new-file.nvim',
   enabled = true,
   opts = {},
   keys = {

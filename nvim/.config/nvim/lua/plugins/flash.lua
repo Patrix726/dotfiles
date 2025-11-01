@@ -12,7 +12,7 @@ return {
   },
   keys = {
     {
-      '<M-s>',
+      '<leader>aj',
       mode = { 'n', 'x', 'o' },
       function()
         require('flash').jump()
@@ -20,7 +20,7 @@ return {
       desc = 'Flash: Jump',
     },
     {
-      '<M-i>',
+      '<leader>at',
       mode = { 'n', 'x', 'o' },
       function()
         require('flash').treesitter()
@@ -28,7 +28,7 @@ return {
       desc = 'Flash: Treesitter',
     },
     {
-      '<M-r>',
+      '<leader>ar',
       mode = 'o',
       function()
         require('flash').remote()
@@ -36,7 +36,7 @@ return {
       desc = 'Flash: Remote',
     },
     {
-      '<M-R>',
+      '<leader>aT',
       mode = { 'o', 'x' },
       function()
         require('flash').treesitter_search()

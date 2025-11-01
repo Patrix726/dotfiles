@@ -52,16 +52,16 @@ autocmd('BufReadPost', {
   end,
 })
 
--- Custom Logging macros based on filetype
-autocmd('FileType', {
-  desc = 'Create a log keybind upon buffer filetype detection',
-  group = vim.api.nvim_create_augroup('LogKeybind', { clear = true }),
-  pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'python' },
-  callback = function()
-    vim.keymap.set('v', '<leader>l', require('configs.macros').log(), { desc = 'Log selected value' })
-  end,
-})
-
+-- -- Custom Logging macros based on filetype
+-- autocmd('FileType', {
+--   desc = 'Create a log keybind upon buffer filetype detection',
+--   group = vim.api.nvim_create_augroup('LogKeybind', { clear = true }),
+--   pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'python' },
+--   callback = function()
+--     vim.keymap.set('v', '<leader>l', require('configs.macros').log(), { desc = 'Log selected value' })
+--   end,
+-- })
+--
 vim.api.nvim_create_user_command('FormatDisable', function(args)
   if args.bang then
     -- FormatDisable! will disable formatting just for this buffer
@@ -80,3 +80,46 @@ vim.api.nvim_create_user_command('FormatEnable', function()
 end, {
   desc = 'Re-enable autoformat-on-save',
 })
+
+vim.api.nvim_create_user_command('ImportSortDisable', function(args)
+  if args.bang then
+    -- FormatDisable! will disable formatting just for this buffer
+    vim.b.disable_autosort = true
+  else
+    vim.g.disable_autosort = true
+  end
+end, {
+  desc = 'Disable autoimportsorting-on-save',
+  bang = true,
+})
+
+vim.api.nvim_create_user_command('ImportSortEnable', function()
+  vim.b.disable_autosort = false
+  vim.g.disable_autosort = false
+end, {
+  desc = 'Re-enable autoimportsorting-on-save',
+})
+
+-- Stop Neovim Daemons.
+autocmd('ExitPre', {
+  group = vim.api.nvim_create_augroup('StopNeovimDaemons', { clear = true }),
+  desc = 'Stop Neovim Dameons (eslint_d, prettier_d etc.) upon exit',
+  callback = function()
+    vim.fn.jobstart(vim.fn.expand '$SCRIPTS' .. 'stop-nvim-daemons.sh', { detach = true })
+  end,
+})
+
+-- vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'BufEnter' }, {
+--   group = vim.api.nvim_create_augroup('ScrollOffEOF', {}),
+--   callback = function()
+--     local win_h = vim.api.nvim_win_get_height(0)
+--     local off = math.min(vim.o.scrolloff, math.floor(win_h / 2))
+--     local dist = vim.fn.line '$' - vim.fn.line '.'
+--     local rem = vim.fn.line 'w$' - vim.fn.line 'w0' + 1
+--     if dist < off and win_h - rem + dist < off then
+--       local view = vim.fn.winsaveview()
+--       view.topline = view.topline + off - (win_h - rem + dist)
+--       vim.fn.winrestview(view)
+--     end
+--   end,
+-- })

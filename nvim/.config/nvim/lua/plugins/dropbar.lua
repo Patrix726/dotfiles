@@ -1,6 +1,6 @@
 return {
   'Bekaboo/dropbar.nvim',
-  enabled = false,
+  enabled = true,
   dependencies = {
     'nvim-telescope/telescope-fzf-native.nvim',
     build = 'make',
@@ -42,22 +42,6 @@ return {
         require('dropbar.api').pick()
       end,
       desc = 'Pick symbols in winbar',
-    },
-    {
-      '[;',
-      mode = 'n',
-      function()
-        require('dropbar.api').goto_context_start()
-      end,
-      desc = 'Go to start of current context',
-    },
-    {
-      '];',
-      mode = 'n',
-      function()
-        require('dropbar.api').select_next_context()
-      end,
-      desc = 'Select next context',
     },
   },
 }

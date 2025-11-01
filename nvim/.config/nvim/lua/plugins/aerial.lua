@@ -1,6 +1,6 @@
 return {
   'stevearc/aerial.nvim',
-  enabled = false,
+  enabled = true,
   opts = {
     close_automatic_events = {
       'unfocus',
@@ -30,5 +30,32 @@ return {
   },
   keys = {
     { '<leader>ta', mode = 'n', '<cmd>AerialToggle<cr>', desc = 'Toggle aerial volume' },
+    { 'ga', mode = 'n', '<cmd>AerialGo<cr>', desc = 'Go to root symbol' },
+    {
+      '[;',
+      mode = { 'v', 'o', 'n' },
+      function()
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+        return '<cmd>' .. count .. 'AerialPrev<cr>'
+      end,
+      desc = 'Select prev context',
+      expr = true,
+    },
+    {
+      '];',
+      mode = { 'v', 'o', 'n' },
+      function()
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+        return '<cmd>' .. count .. 'AerialNext<cr>'
+      end,
+      desc = 'Select next context',
+      expr = true,
+    },
   },
 }
