@@ -12,30 +12,19 @@ echo $filename
 
 if [ -z $(pgrep wf-recorder) ];
 	then notify-send "Recording Started ($active)"
-	if [ "$1" == "-sa" ]
-		then wf-recorder -f "$filedir/$filename" -a "$active" -g "$(slurp -c "#FFFFFF")" >/dev/null 2>&1 &
-			sleep 2 
-			while [ ! -z $(pgrep -x slurp) ]; do wait; done
+	if [ "$1" = "-sa" ]
+		then wf-recorder -f "$filedir/$filename" -a "$active" -C aac -g "$(slurp -c "#FFFFFF")" >/dev/null 2>&1 &
 			pkill -RTMIN+8 waybar
-	else if [ "$1" == "-s" ] 
+	elif [ "$1" = "-s" ]
 		then wf-recorder -f "$filedir/$filename" -g "$(slurp -c "#FFFFFF")" >/dev/null 2>&1 &
-			 sleep 2
-			 while [ ! -z $(pgrep -x slurp) ]; do wait; done
 			 pkill -RTMIN+8 waybar
-	# else if [ "$1" == "-wa" ] 
-	# 	then wf-recorder -f "$filedir/$filename" -a "$active" -g "$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -c "#FFFFFF" )" >/dev/null 2>&1 &
-	# 		 sleep 2
-	# 		 while [ ! -z $(pgrep -x slurp) ]; do wait; done
-	# 		 pkill -RTMIN+8 waybar
-	# else if [ "$1" == "-w" ] 
-	# 	then wf-recorder -f "$filedir/$filename" -g "$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -c "#FFFFFF" )" >/dev/null 2>&1 &
-	# 		 sleep 2
-	# 		 while [ ! -z $(pgrep -x slurp) ]; do wait; done
-	# 		 pkill -RTMIN+8 waybar
+	elif [ "$1" = "-a" ]
+		then
+			wf-recorder -f "$filedir/$filename" -a "$active" -C aac >/dev/null 2>&1 &
+			pkill -RTMIN+8 waybar
 	else
-		wf-recorder -f "$filedir/$filename" -a "$active" >/dev/null 2>&1 &
+		wf-recorder -f "$filedir/$filename" >/dev/null 2>&1 &
 		pkill -RTMIN+8 waybar
-	fi
 	fi
 else
 	killall -s SIGINT wf-recorder
