@@ -13,6 +13,20 @@ autocmd('LspAttach', {
   end,
 })
 
+autocmd('VimResized', {
+  desc = 'Automatically resize splits, when terminal window is moved',
+  command = 'wincmd =',
+})
+
+autocmd('FileType', {
+  desc = 'Enable some settings on markdown files',
+  pattern = 'markdown',
+  callback = function()
+    vim.wo.spell = true
+    vim.wo.wrap = true
+  end,
+})
+
 -- Set text width for markdown files to be 80
 autocmd('BufWinEnter', {
   pattern = { '*.md' },

@@ -16,6 +16,11 @@ map('n', '<leader>_', function()
   require('configs.qf').toggle_qf 'l'
 end, { desc = 'Toggle [L]ocation list' })
 
+-- Lsp keymaps
+map('n', 'gdx', ':belowright split | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new horizontal split' })
+map('n', 'gdv', ':vsplit | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new vertical split' })
+map('n', 'gdt', ':tab split | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new tab' })
+
 -- New file using snacks picker keymaps
 -- map('n', '<leader>cp', require('configs.new-file').create_path_in_folder, { desc = '[C]reate new file/folder/[P]ath in selected directory' })
 
@@ -81,7 +86,7 @@ map('n', '<S-CR>', 'm`O<Esc>``', { desc = 'Insert new line above in normal mode'
 map('v', '<leader>p', '"_dP', { desc = 'Paste previous to cursor and keep the paste value' })
 map('v', '<leader>P', '"_dp', { desc = 'Paste next to cursor and keep the paste value' })
 map('n', 'U', '<C-r>', { desc = 'Redo key' })
-map('i', 'jk', '<ESC>')
+-- map('i', 'jk', '<ESC>')
 map({ 'n', 'v' }, '`', 'q', { desc = 'Start macro recording' })
 map({ 'n', 'v' }, 'q', 'b', { desc = 'One word back' })
 map({ 'n', 'v' }, 'b', '%', { desc = 'Complimenting bracket' })
