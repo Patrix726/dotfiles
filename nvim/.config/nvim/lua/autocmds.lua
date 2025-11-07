@@ -1,5 +1,6 @@
 -- autocmds
 local autocmd = vim.api.nvim_create_autocmd
+local usercmd = vim.api.nvim_create_user_command
 
 -- Prefer LSP folding if client supports it
 autocmd('LspAttach', {
@@ -12,6 +13,7 @@ autocmd('LspAttach', {
   end,
 })
 
+-- Set text width for markdown files to be 80
 autocmd('BufWinEnter', {
   pattern = { '*.md' },
   callback = function()
@@ -37,6 +39,7 @@ autocmd('BufReadPost', {
   end,
 })
 
+-- Open help window in a vertical split
 autocmd('FileType', {
   desc = 'Automatically Split help Buffers to the right',
   pattern = 'help',
@@ -52,17 +55,26 @@ autocmd('BufReadPost', {
   end,
 })
 
--- -- Custom Logging macros based on filetype
--- autocmd('FileType', {
---   desc = 'Create a log keybind upon buffer filetype detection',
---   group = vim.api.nvim_create_augroup('LogKeybind', { clear = true }),
---   pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'python' },
---   callback = function()
---     vim.keymap.set('v', '<leader>l', require('configs.macros').log(), { desc = 'Log selected value' })
---   end,
--- })
---
-vim.api.nvim_create_user_command('FormatDisable', function(args)
+-- Stop Neovim Daemons.
+autocmd('ExitPre', {
+  group = vim.api.nvim_create_augroup('StopNeovimDaemons', { clear = true }),
+  desc = 'Stop Neovim Dameons (eslint_d, prettier_d etc.) upon exit',
+  callback = function()
+    vim.fn.jobstart(vim.fn.expand '$SCRIPTS' .. 'stop-nvim-daemons.sh', { detach = true })
+  end,
+})
+
+-- Syntax highlighting for dotenv files
+autocmd('BufRead', {
+  group = vim.api.nvim_create_augroup('dotenv_ft', { clear = true }),
+  pattern = { '.env', '.env.*' },
+  callback = function()
+    vim.bo.filetype = 'dosini'
+  end,
+})
+
+-- Disable auto formatting
+usercmd('FormatDisable', function(args)
   if args.bang then
     -- FormatDisable! will disable formatting just for this buffer
     vim.b.disable_autoformat = true
@@ -74,14 +86,16 @@ end, {
   bang = true,
 })
 
-vim.api.nvim_create_user_command('FormatEnable', function()
+-- Enable auto formatting
+usercmd('FormatEnable', function()
   vim.b.disable_autoformat = false
   vim.g.disable_autoformat = false
 end, {
   desc = 'Re-enable autoformat-on-save',
 })
 
-vim.api.nvim_create_user_command('ImportSortDisable', function(args)
+-- Disable auto import sorting
+usercmd('ImportSortDisable', function(args)
   if args.bang then
     -- FormatDisable! will disable formatting just for this buffer
     vim.b.disable_autosort = true
@@ -93,21 +107,24 @@ end, {
   bang = true,
 })
 
-vim.api.nvim_create_user_command('ImportSortEnable', function()
+-- Enable auto import sorting
+usercmd('ImportSortEnable', function()
   vim.b.disable_autosort = false
   vim.g.disable_autosort = false
 end, {
   desc = 'Re-enable autoimportsorting-on-save',
 })
 
--- Stop Neovim Daemons.
-autocmd('ExitPre', {
-  group = vim.api.nvim_create_augroup('StopNeovimDaemons', { clear = true }),
-  desc = 'Stop Neovim Dameons (eslint_d, prettier_d etc.) upon exit',
-  callback = function()
-    vim.fn.jobstart(vim.fn.expand '$SCRIPTS' .. 'stop-nvim-daemons.sh', { detach = true })
-  end,
-})
+-- -- Custom Logging macros based on filetype
+-- autocmd('FileType', {
+--   desc = 'Create a log keybind upon buffer filetype detection',
+--   group = vim.api.nvim_create_augroup('LogKeybind', { clear = true }),
+--   pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'python' },
+--   callback = function()
+--     vim.keymap.set('v', '<leader>l', require('configs.macros').log(), { desc = 'Log selected value' })
+--   end,
+-- })
+--
 
 -- vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'BufEnter' }, {
 --   group = vim.api.nvim_create_augroup('ScrollOffEOF', {}),
@@ -123,3 +140,12 @@ autocmd('ExitPre', {
 --     end
 --   end,
 -- })
+--
+-- -- No auto comment
+-- autocmd('FileType', {
+--   group = vim.api.nvim_create_augroup('no_auto_comment', {}),
+--   callback = function()
+--     vim.opt_local.formatoptions:remove { 'c', 'r', 'o' }
+--   end,
+-- })
+--
