@@ -48,6 +48,12 @@ return {
           padding = { left = 1, right = 0 },
         },
         'filename',
+        function()
+          return require('triforce.lualine').session_time()
+        end,
+        function()
+          return require('triforce.lualine').streak()
+        end,
       },
       lualine_z = {
         { 'location', separator = { left = '', right = '' } },
