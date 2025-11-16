@@ -9,20 +9,17 @@ map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 map('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open file diagnostic [Q]uickfix list' })
 map('n', '<leader>dQ', vim.diagnostic.setqflist, { desc = 'Open Workspace diagnostic [Q]uickfix list' })
-map('n', '<leader>q', function()
-  require('configs.qf').toggle_qf 'q'
-end, { desc = 'Toggle [Q]uickfix list' })
-map('n', '<leader>_', function()
-  require('configs.qf').toggle_qf 'l'
-end, { desc = 'Toggle [L]ocation list' })
+-- map('n', '<leader>q', function()
+--   require('configs.qf').toggle_qf 'q'
+-- end, { desc = 'Toggle [Q]uickfix list' })
+-- map('n', '<leader>_', function()
+--   require('configs.qf').toggle_qf 'l'
+-- end, { desc = 'Toggle [L]ocation list' })
 
 -- Lsp keymaps
 map('n', 'gdx', ':belowright split | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new horizontal split' })
 map('n', 'gdv', ':vsplit | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new vertical split' })
 map('n', 'gdt', ':tab split | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new tab' })
-
--- New file using snacks picker keymaps
--- map('n', '<leader>cp', require('configs.new-file').create_path_in_folder, { desc = '[C]reate new file/folder/[P]ath in selected directory' })
 
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('t', '<C-h>', '<cmd>wincmd h<cr>', { desc = 'Move focus to the left window in terminal mode' })
@@ -60,19 +57,19 @@ end, { desc = 'Show snacks notification history' })
 map('n', '<leader>tF', function()
   if vim.g.disable_autosort then
     vim.cmd ':ImportSortEnable'
-    Snacks.notify.info 'Auto import sorting enabled'
+    vim.notify 'Auto import sorting enabled'
   else
     vim.cmd ':ImportSortDisable'
-    Snacks.notify.info 'Auto import sorting disabled'
+    vim.notify 'Auto import sorting disabled'
   end
 end, { desc = 'Toggle auto import sorting on save' })
 map('n', '<leader>tf', function()
   if vim.g.disable_autoformat then
     vim.cmd ':FormatEnable'
-    Snacks.notify.info 'Auto formatting enabled'
+    vim.notify 'Auto formatting enabled'
   else
     vim.cmd ':FormatDisable'
-    Snacks.notify.info 'Auto formatting disabled'
+    vim.notify 'Auto formatting disabled'
   end
 end, { desc = 'Toggle auto format on save' })
 map({ 'n', 'v' }, ';', ':', { desc = 'CMD enter command mode' })

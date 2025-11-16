@@ -54,7 +54,7 @@ M.move_and_git_commit = function()
   vim.fn.system(git_add_cmd)
   vim.fn.system(git_commit_cmd)
 
-  Snacks.notify('Moved and committed ' .. filename)
+  vim.notify('Moved and committed ' .. filename)
 end
 
 return M

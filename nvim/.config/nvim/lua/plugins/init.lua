@@ -55,5 +55,6 @@ return {
       },
       enabled = false,
     },
+    lazy = true,
   },
 }
