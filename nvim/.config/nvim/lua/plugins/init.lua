@@ -41,11 +41,6 @@ return {
     config = function() end,
   },
   {
-    'folke/persistence.nvim',
-    event = 'BufReadPre',
-    opts = {},
-  },
-  {
     'm4xshen/hardtime.nvim',
     dependencies = { 'MunifTanjim/nui.nvim' },
     opts = {

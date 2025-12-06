@@ -2,7 +2,7 @@
 
 scrDir="$(dirname "$(realpath "$0")")"
 source "${scrDir}/globalcontrol.sh"
-pkgChk=("io.missioncenter.MissionCenter" "btop" "htop" "top")
+pkgChk=( "btop" "io.missioncenter.MissionCenter" "htop" "top")
 
 for sysMon in "${!pkgChk[@]}"; do
     [ "${sysMon}" -gt 0 ] && term=$(cat $HOME/.config/hypr/keybindings.conf | grep ^'$term' | cut -d '=' -f2)

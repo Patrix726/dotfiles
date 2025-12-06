@@ -48,6 +48,7 @@ return {
         { '<leader>a', group = 'Fl[a]sh' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>k', group = '[K]ulala' },
         { '<leader>os', group = '[S]ession' },
         { '<leader>og', group = '[G]olf' },
         { '<leader>o', group = '[O]pencode' },

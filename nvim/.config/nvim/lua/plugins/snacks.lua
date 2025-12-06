@@ -1,11 +1,43 @@
 ---@module "snacks"
 return {
   'folke/snacks.nvim',
+  lazy = false,
   ---@type snacks.Config
   opts = {
+    picker = {
+      matcher = {
+        frecency = true,
+      },
+      formatters = {
+        file = {
+          truncate = 'left',
+        },
+      },
+      win = {
+        input = {
+          keys = {
+            ['<c-l>'] = { 'preview_scroll_right', mode = { 'i', 'n' } },
+            ['<c-h>'] = { 'preview_scroll_left', mode = { 'i', 'n' } },
+            ['<a-l>'] = { 'cycle_win', mode = { 'i', 'n' } },
+          },
+        },
+        list = {
+          keys = {
+            ['<c-l>'] = { 'preview_scroll_right', mode = { 'i', 'n' } },
+            ['<c-h>'] = { 'preview_scroll_left', mode = { 'i', 'n' } },
+            ['<a-l>'] = { 'cycle_win', mode = { 'i', 'n' } },
+          },
+        },
+        preview = {
+          keys = {
+
+            ['<a-l>'] = { 'cycle_win', mode = { 'i', 'n' } },
+          },
+        },
+      },
+    },
     ---@type table<string, snacks.win.Config>
     styles = {
-
       scratch = {
         width = 120,
         height = 30,
@@ -20,7 +52,6 @@ return {
         footer_pos = 'center',
       },
     },
-
     ---@class snacks.dashboard.Config
     ---@field enabled? boolean
     ---@field sections snacks.dashboard.Section
@@ -49,9 +80,9 @@ return {
         },
       },
     },
-
     notifier = {},
     indent = {},
+    terminal = {},
     scratch = {
       ft = function()
         if vim.bo.buftype == '' and vim.bo.filetype == 'lua' and vim.bo.filetype == 'python' and vim.bo.filetype == 'javascript' then
@@ -116,9 +147,126 @@ return {
   },
   keys = {
     {
+      '<leader>sh',
+      function()
+        Snacks.picker.help()
+      end,
+      desc = 'Snacks: [S]earch [H]elp',
+    },
+
+    {
+      '<leader>ts',
+      function()
+        Snacks.scratch.open()
+      end,
+      mode = 'n',
+      desc = 'Snacks: Toggle scratch buffer instance',
+    },
+    {
+      '<leader>sS',
+      function()
+        Snacks.scratch.select()
+      end,
+      mode = 'n',
+      desc = 'Snacks: Select from scratch instances',
+    },
+    {
+      '<leader>sk',
+      function()
+        Snacks.picker.keymaps()
+      end,
+      desc = 'Snacks: [S]earch [K]eymaps',
+    },
+    {
+      '<leader>sf',
+      function()
+        Snacks.picker.files()
+      end,
+      desc = 'Snacks: [S]earch [F]iles',
+    },
+    {
+      '<leader>ss',
+      function()
+        Snacks.picker.pickers()
+      end,
+      desc = 'Snacks: [S]earch [S]elect Snacks Picker',
+    },
+    {
+      '<leader>sw',
+      function()
+        Snacks.picker.grep_word()
+      end,
+      desc = 'Snacks: [S]earch current [W]ord',
+    },
+    {
+      '<leader>sg',
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = 'Snacks: [S]earch by [G]rep',
+    },
+    {
+      '<leader>sd',
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = 'Snacks: [S]earch [D]iagnostics',
+    },
+    {
+      '<leader>sr',
+      function()
+        Snacks.picker.resume()
+      end,
+      desc = 'Snacks: [S]earch [R]esume',
+    },
+    {
+      '<leader>s.',
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = 'Snacks: [S]earch Recent Files ("." for repeat)',
+    },
+    {
+      '<leader><leader>',
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = 'Snacks: [S]earch existing buffers',
+    },
+    {
+      '<leader>ty',
+      function()
+        Snacks.picker.colorschemes()
+      end,
+      desc = 'Change color scheme',
+    },
+    {
+      '<leader>sb',
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = 'Snacks: Fuzzily [S]earch in current [B]uffer',
+    },
+    {
+      '<leader>s/',
+      function()
+        Snacks.picker.grep_buffers()
+      end,
+      desc = 'Snacks: [S]earch [/] in Open Files',
+    },
+    {
+      '<leader>sn',
+      function()
+        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
+      end,
+      desc = 'Snacks: [S]earch [N]eovim files',
+    },
+    {
       '<leader>gl',
       function()
-        Snacks.picker.git_log()
+        Snacks.picker.git_log {
+          -- layout = 'ivy_split',
+        }
       end,
       desc = 'Git Log',
     },
@@ -132,7 +280,9 @@ return {
     {
       '<leader>gf',
       function()
-        Snacks.picker.git_log_file()
+        Snacks.picker.git_log_file {
+          -- layout = 'ivy_split',
+        }
       end,
       desc = 'Git Log File',
     },
@@ -149,6 +299,14 @@ return {
         Snacks.bufdelete.other()
       end,
       desc = 'Delete Other Buffers',
+    },
+    {
+      '<leader>tn',
+      function()
+        Snacks.notifier.show_history()
+      end,
+      mode = 'n',
+      desc = 'Snacks: Show snacks notification history',
     },
   },
 }

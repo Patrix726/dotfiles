@@ -1,6 +1,6 @@
 return {
   'sindrets/diffview.nvim',
-  lazy = true,
+  event = 'VeryLazy',
   opts = {
     view = {
       merge_tool = {

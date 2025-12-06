@@ -35,11 +35,11 @@ setopt correct
 
 _evalcache starship init zsh
 _evalcache zoxide init zsh --cmd cd
-zsh-defer mise activate zsh
+# zsh-defer mise activate zsh
 
 precmd() { precmd() { echo "" } }
 # Paths can be found at $HOME/.oh-my-zsh/custom/paths.zsh
 # Aliases can be found at $HOME/.oh-my-zsh/custom/aliases.zsh
 # Functions can be found at $HOME/.oh-my-zsh/custom/func.zsh
 
-PATH=~/.console-ninja/.bin:$PATH
+PATH=~/.console-ninja/.bin:~/.opencode/bin:$PATH

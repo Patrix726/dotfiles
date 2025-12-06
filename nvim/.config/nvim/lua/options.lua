@@ -1,7 +1,4 @@
 -- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
 
 -- Make line numbers default
 -- vim.o.number = true
@@ -16,6 +13,7 @@ vim.o.mouse = 'a'
 vim.o.showmode = false
 
 vim.o.winborder = 'rounded'
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -47,14 +45,6 @@ vim.o.timeoutlen = 300
 vim.o.splitright = true
 vim.o.splitbelow = true
 
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
---
---  Notice listchars is set using `vim.opt` instead of `vim.o`.
---  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.
---   See `:help lua-options`
---   and `:help lua-options-guide`
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
@@ -72,11 +62,8 @@ vim.o.scrolloff = 20
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
--- vim: ts=2 sts=2 sw=2 et
-
 -- Show the bufferline if the number of buffers is greater than 1
-vim.o.showtabline = 1
-vim.g.buffer_line_enabled = true
+vim.o.showtabline = 2
 
 -- Set tab width to be 4 spaces
 vim.o.tabstop = 4
@@ -103,3 +90,5 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.formatoptions = 'jcroqlnt'
 
 vim.o.laststatus = 3
+
+-- vim: ts=2 sts=2 sw=2 et

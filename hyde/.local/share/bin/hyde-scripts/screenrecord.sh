@@ -1,7 +1,7 @@
 #!/bin/sh
 
 active=$(pacmd list-sources | awk 'c&&!--c;/* index*/{c=1}' | awk '{gsub(/<|>/,"",$0); print $NF}')
-now=$(date +%F_%T.mkv)
+now=$(date +%F_%T.mp4)
 filename="$now"
 filedir="$HOME/Videos/Screencasts"
 
@@ -33,5 +33,5 @@ else
 	pkill -RTMIN+8 waybar
 	name="$(zenity --entry --text "Enter a filename")"
 	old_name="$(ls -d $filedir/* -t | head -n1)"
-	mv "$old_name" "$filedir/$name.mkv"
+	mv "$old_name" "$filedir/$name.mp4"
 fi

@@ -55,6 +55,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         bash = { 'beautysh' },
+        sh = { 'beautysh' },
         -- Conform can also run multiple formatters sequentially
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
@@ -65,6 +66,7 @@ return {
         javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
         typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
         json = { 'prettierd', 'prettier', stop_after_first = true },
+        jsonc = { 'prettierd', 'prettier', stop_after_first = true },
         angular = { 'prettierd', 'prettier', stop_after_first = true },
         css = { 'prettierd', 'prettier', stop_after_first = true },
         flow = { 'prettierd', 'prettier', stop_after_first = true },
