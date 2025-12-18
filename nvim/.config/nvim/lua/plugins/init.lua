@@ -6,13 +6,13 @@ return {
   { 'NMAC427/guess-indent.nvim', opts = {} },
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    ft = { 'markdown', 'Avante' },
+    ft = { 'markdown', 'Avante', 'opencode_output' },
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
       completions = { blink = { enabled = true } },
-      file_types = { 'markdown', 'Avante' },
+      file_types = { 'markdown', 'Avante', 'opencode_output' },
     },
   },
   {

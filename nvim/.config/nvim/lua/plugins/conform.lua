@@ -56,8 +56,7 @@ return {
         lua = { 'stylua' },
         bash = { 'beautysh' },
         sh = { 'beautysh' },
-        -- Conform can also run multiple formatters sequentially
-        --
+        go = { 'goimports' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         python = { 'isort', 'black', stop_after_first = false },
         svelte = { 'prettierd', 'prettier', stop_after_first = true },

@@ -30,7 +30,6 @@ return {
         },
         preview = {
           keys = {
-
             ['<a-l>'] = { 'cycle_win', mode = { 'i', 'n' } },
           },
         },
@@ -80,8 +79,8 @@ return {
         },
       },
     },
-    notifier = {},
-    indent = {},
+    notifier = {}, -- Snacks notification
+    indent = {}, -- Visual indent lines to see the scope you are in
     terminal = {},
     scratch = {
       ft = function()
@@ -110,8 +109,8 @@ return {
           },
         },
       },
-    },
-    input = {},
+    }, -- Scratch buffers for todos and other docs
+    input = {}, -- Better vim.input I believe
     bigfile = {
       notify = true, -- show notification when big file detected
       size = 1.5 * 1024 * 1024, -- 1.5MB
@@ -143,7 +142,7 @@ return {
         patterns = { 'GitSign', 'MiniDiffSign' },
       },
       refresh = 50, -- refresh at most every 50ms
-    },
+    }, -- Show a status column left of the numbers column for fold and signs
   },
   keys = {
     {

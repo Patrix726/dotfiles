@@ -11,9 +11,9 @@ map('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open file diagnostic
 map('n', '<leader>dQ', vim.diagnostic.setqflist, { desc = 'Open Workspace diagnostic [Q]uickfix list' })
 
 -- Lsp keymaps
-map('n', 'gdj', ':belowright split | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new horizontal split' })
-map('n', 'gdl', ':vsplit | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new vertical split' })
-map('n', 'gdn', ':tab split | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new tab' })
+map('n', 'gdj', '<cmd>belowright split | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new horizontal split' })
+map('n', 'gdl', '<cmd>vsplit | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new vertical split' })
+map('n', 'gdn', '<cmd>tab split | lua vim.lsp.buf.definition()<CR>', { desc = 'Open definition in a new tab' })
 
 -- Terminal keymaps
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -78,8 +78,8 @@ map('n', 'U', '<C-r>', { desc = 'Redo key' })
 map({ 'n', 'v' }, '`', 'q', { desc = 'Start macro recording' })
 map({ 'n', 'v' }, 'q', 'b', { desc = 'One word back' })
 map({ 'n', 'v' }, 'b', '%', { desc = 'Complimenting bracket' })
-map('n', '<C-S>', ':w<CR>', { desc = 'Save file' })
-map('n', '<leader>wk', ':WhichKey<CR>', { desc = 'Open WhichKey dialog' })
+map('n', '<C-S>', '<cmd>w<CR>', { desc = 'Save file' })
+map('n', '<leader>wk', '<cmd>WhichKey<CR>', { desc = 'Open WhichKey dialog' })
 map('n', '<leader>/', 'gcc', { desc = 'toggle comment', remap = true })
 map('v', '<leader>/', 'gc', { desc = 'toggle comment', remap = true })
 map('x', '/', '<Esc>/\\%V', { desc = 'Search within visually selected lines' })
@@ -108,14 +108,24 @@ map({ 'n', 'o', 'x' }, '["', [[?\v("|'|`)[^"'`]*\zs\1<CR><cmd>nohlsearch<CR>]], 
 
 -- Navigate Open Buffers
 map('n', '<leader>x', '<cmd>bp<CR><cmd>bd#<CR>', { desc = 'buffer close' })
-map('n', '<tab>', ':bn<CR>', { desc = 'buffer goto next' })
-map('n', '<S-tab>', ':bp<CR>', { desc = 'buffer goto previous' })
+map('n', '<tab>', '<cmd>bn<CR>', { desc = 'buffer goto next' })
+map('n', '<S-tab>', '<cmd>bp<CR>', { desc = 'buffer goto previous' })
 
 -- Navigate Open Tabs
-map('n', '<C-z>', ':tabclose<CR>', { desc = 'Tab close' })
-map('n', '<C-n>', ':tabnew<CR>', { desc = 'Tab create' })
-map('n', '<S-C-j>', ':tabnext<CR>', { desc = 'Tab goto next' })
-map('n', '<S-C-k>', ':tabprevious<CR>', { desc = 'Tab goto previous' })
+map('n', '<C-z>', '<cmd>tabclose<CR>', { desc = 'Tab close' })
+map('n', '<C-n>', '<cmd>tabnew<CR>', { desc = 'Tab create' })
+map({ 'n', 't' }, '<S-C-j>', function()
+  vim.cmd 'tabnext'
+  if vim.bo.buftype == 'terminal' then
+    vim.cmd 'startinsert'
+  end
+end, { desc = 'Tab goto next' })
+map({ 'n', 't' }, '<S-C-k>', function()
+  vim.cmd 'tabprevious'
+  if vim.bo.buftype == 'terminal' then
+    vim.cmd 'startinsert'
+  end
+end, { desc = 'Tab goto previous' })
 
 -- Repeat last move from treesitter textobjects
 -- local ts_repeat_move = require 'nvim-treesitter.textobjects.repeatable_move'

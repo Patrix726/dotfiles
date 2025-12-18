@@ -1,0 +1,9 @@
+[opener]
+read = [
+	{ run = 'evince "$@"', orphan = true, desc = "Read", for = "linux" },
+]
+
+[open]
+prepend_rules = [
+	{ name = "*.pdf", use = ["open", "read"] },
+]
