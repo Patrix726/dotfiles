@@ -6,6 +6,8 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export EDITOR=nvim
 # ZSH_THEME="xiong-chiamiov-plus"
+# PATH=$PATH:~/.cargo/bin
+source $ZSH/custom/paths.zsh
 
 plugins=( 
     git
@@ -41,5 +43,3 @@ precmd() { precmd() { echo "" } }
 # Paths can be found at $HOME/.oh-my-zsh/custom/paths.zsh
 # Aliases can be found at $HOME/.oh-my-zsh/custom/aliases.zsh
 # Functions can be found at $HOME/.oh-my-zsh/custom/func.zsh
-
-PATH=~/.console-ninja/.bin:~/.opencode/bin:$PATH
