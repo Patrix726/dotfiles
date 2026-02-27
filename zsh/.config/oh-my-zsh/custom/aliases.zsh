@@ -17,6 +17,8 @@ alias zjd="zellij"
 alias zjn="zellij -l simple attach --create"
 alias oc="opencode"
 alias open="xdg-open"
+alias lzs="lazysql"
+alias lzd="lazydocker"
 
 if type eza &>/dev/null; then
   alias l="eza --icons=always"

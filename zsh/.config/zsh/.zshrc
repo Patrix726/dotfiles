@@ -27,6 +27,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
+export FZF_DEFAULT_OPTS='--style full --height 50% --layout reverse'
 
 # HISTFILE=~/.zsh_history
 HISTSIZE=10000

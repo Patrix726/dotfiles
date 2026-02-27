@@ -254,6 +254,13 @@ return {
       desc = 'Snacks: [S]earch [/] in Open Files',
     },
     {
+      '<leader>st',
+      function()
+        Snacks.picker.todo_comments()
+      end,
+      desc = 'Snacks: [S]earch [T]odo comments',
+    },
+    {
       '<leader>sn',
       function()
         Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
