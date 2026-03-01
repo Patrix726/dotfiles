@@ -19,6 +19,10 @@ alias oc="opencode"
 alias open="xdg-open"
 alias lzs="lazysql"
 alias lzd="lazydocker"
+alias tm="tmux"
+
+# To clean aliases
+alias svn="svn --config-dir \"$XDG_CONFIG_HOME\"/subversion"
 
 if type eza &>/dev/null; then
   alias l="eza --icons=always"

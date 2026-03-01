@@ -1,46 +1,24 @@
 # zmodload zsh/zprof
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+source $ZDOTDIR/.antidote/antidote.zsh
 
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-export EDITOR=nvim
-# ZSH_THEME="xiong-chiamiov-plus"
-# PATH=$PATH:~/.cargo/bin
-source $ZSH/custom/paths.zsh
-
-plugins=( 
-    git
-    dnf
-    mise
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zeit
-    you-should-use
-    zsh-bat
-    zsh-defer
-    evalcache
-    docker
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# Set-up FZF key bindings (CTRL R for fuzzy history finder)
-source <(fzf --zsh)
-export FZF_DEFAULT_OPTS='--style full --height 50% --layout reverse'
-
-# HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt correct
-# setopt appendhistory
+antidote load
 
-_evalcache starship init zsh
-_evalcache zoxide init zsh --cmd cd
-# zsh-defer mise activate zsh
+setopt correct
+
+source <(fzf --zsh)
+export FZF_DEFAULT_OPTS='--style full --height 50% --layout reverse'
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 precmd() { precmd() { echo "" } }
-# Paths can be found at $HOME/.oh-my-zsh/custom/paths.zsh
-# Aliases can be found at $HOME/.oh-my-zsh/custom/aliases.zsh
-# Functions can be found at $HOME/.oh-my-zsh/custom/func.zsh
+
+bindkey '^R' fzf-history-widget
+
+# Custom zsh scripts
+source $ZDOTDIR/paths.zsh
+source $ZDOTDIR/aliases.zsh
+source $ZDOTDIR/func.zsh
