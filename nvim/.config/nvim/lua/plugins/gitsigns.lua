@@ -89,7 +89,7 @@ return {
 
         map('n', '<leader>hd', '<cmd>DiffviewOpen<cr>', { desc = 'git [d]iff against index' })
         map('n', '<leader>hD', '<cmd>DiffviewFileHistory %<cr>', { desc = 'git [D]iff file history' })
-        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
+        map('n', '<leader>tB', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
       end,
     },
   },

@@ -5,6 +5,7 @@ return {
   config = function()
     vim.g.opencode_opts = {
       provider = {
+        enabled = 'snacks',
         snacks = {
           auto_close = true, -- Close the terminal when `opencode` exits
           win = {
@@ -20,6 +21,7 @@ return {
             },
           },
         },
+        tmux = {},
       },
     }
 

@@ -2,8 +2,12 @@
 read = [
 	{ run = 'evince "$@"', orphan = true, desc = "Read", for = "linux" },
 ]
+extract = [
+	{run = 'unzip "$@"', orphan = true, desc = "Extract", for = "linux"},
+]
 
 [open]
 prepend_rules = [
-	{ name = "*.pdf", use = ["open", "read"] },
+	{ url = "*.pdf", use = ["open", "read", "reveal"] },
+	{ url = "*.zip", use = ["extract", "reveal"] },
 ]

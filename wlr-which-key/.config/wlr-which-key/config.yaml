@@ -1,0 +1,52 @@
+# Theming
+font: JetBrainsMono Nerd Font 12
+background: "#24283bd0"
+color: "#a9b1d6"
+border: "#7aa2f7"
+separator: " ➜ "
+border_width: 2
+corner_r: 10
+padding: 15 # Defaults to corner_r
+rows_per_column: 5 # No limit by default
+column_padding: 25 # Defaults to padding
+
+# Anchor and margin
+anchor: bottom-right # One of center, left, right, top, bottom, bottom-left, top-left, etc.
+# Only relevant when anchor is not center
+margin_right: 20
+margin_bottom: 20
+# margin_left: 10
+# margin_top: 10
+
+# Permits key bindings that conflict with compositor key bindings.
+# Default is `false`.
+inhibit_compositor_keyboard_shortcuts: true
+
+# Try to guess the correct keyboard layout to use. Default is `false`.
+auto_kbd_layout: true
+
+menu:
+  - key: "a"
+    desc: Apps
+    submenu:
+      - key: "c"
+        desc: Chromium
+        cmd: chromium-browser
+      - key: "C"
+        desc: VSCode
+        cmd: code --ozone-platform-hint=wayland --disable-gpu
+      - key: "m"
+        desc: MPV
+        cmd: mpv --player-operation-mode=pseudo-gui
+      - key: "q"
+        desc: Qbittorrent
+        cmd: qbittorrent
+      - key: "s"
+        desc: Slack
+        cmd: slack
+      - key: "t"
+        desc: Telegram
+        cmd: Telegram
+      - key: "v"
+        desc: Vpn
+        cmd: protonvpn-app

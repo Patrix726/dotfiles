@@ -91,6 +91,15 @@ function sesh-list() {
   }
 }
 
+function zesh-list() {
+  {
+    exec </dev/tty
+    exec <&1
+    zesh
+    zle reset-prompt > /dev/null 2>&1 || true
+  }
+}
+
 zle     -N             sesh-sessions
 bindkey -M emacs '\es' sesh-sessions
 bindkey -M vicmd '\es' sesh-sessions
@@ -100,3 +109,8 @@ zle     -N             sesh-list
 bindkey -M emacs '\ea' sesh-list
 bindkey -M vicmd '\ea' sesh-list
 bindkey -M viins '\ea' sesh-list
+
+zle     -N             zesh-list
+bindkey -M emacs '\ef' zesh-list
+bindkey -M vicmd '\ef' zesh-list
+bindkey -M viins '\ef' zesh-list

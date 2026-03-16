@@ -33,20 +33,19 @@ return {
   -- },
   --
   vtsls = {
+    --- @type lspconfig.settings.vtsls
     settings = {
-      typescript = {
-        inlayHints = {
-          parameterNames = { enabled = 'all' },
-          parameterTypes = { enabled = true },
-          variableTypes = { enabled = true },
-          propertyDeclarationTypes = { enabled = true },
-          functionLikeReturnTypes = { enabled = true },
-          enumMemberValues = { enabled = true },
-        },
+      typescript = {},
+    },
+    experimental = {
+      completion = {
+        enableServerSideFuzzyMatch = true,
+        entriesLimit = 50,
       },
     },
   },
   tsgo = {},
+  postgres_lsp = {},
   -- ts_go_ls = {
   --   cmd = { vim.loop.os_homedir() .. '/dev/typescript-go/built/local/tsgo', 'lsp', '-stdio' },
   --   filetypes = {

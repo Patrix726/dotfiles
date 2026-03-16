@@ -5,6 +5,16 @@ return {
   },
   opts = {
     graph_style = 'kitty',
+    diff_viewer = 'codediff',
+    signs = {
+      item = { '', '' },
+      section = { '', '' },
+    },
+    integrations = {
+      telescope = false,
+      snacks = true,
+      codediff = true,
+    },
   },
   dependencies = {
     'nvim-lua/plenary.nvim',

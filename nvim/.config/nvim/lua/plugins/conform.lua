@@ -76,6 +76,8 @@ return {
         scss = { 'prettierd', 'prettier', stop_after_first = true },
         vue = { 'prettierd', 'prettier', stop_after_first = true },
         yaml = { 'prettierd', 'prettier', stop_after_first = true },
+        toml = { 'prettierd', 'prettier', stop_after_first = true },
+        http = { 'kulala-fmt' },
       },
     },
   },

@@ -63,11 +63,6 @@ on   = "f"
 run  = "plugin jump-to-char"
 desc = "Jump to char"
 
-[[mgr.prepend_keymap]]
-on = [ "i" ]
-run  = "plugin what-size"
-desc = "Calc size of selection or cwd" 
-
 [[input.prepend_keymap]]
 on   = [ "<S-Esc>" ]
 run  = "close"

@@ -1,0 +1,73 @@
+// DMS Window Rules - Managed by DankMaterialShell
+// Do not edit manually - changes may be overwritten
+
+// @id=wr_1771682980896124954 @name=org.mozilla.firefox
+window-rule {
+    match app-id="^org.mozilla.firefox$"
+    open-maximized true
+    open-focused true
+    open-on-workspace "browser"
+}
+
+// @id=wr_1771683114972844095 @name=org.telegram.desktop
+window-rule {
+    match app-id="^org.telegram.desktop$"
+    open-maximized true
+}
+
+// @id=wr_1771683187675577458 @name=mpv
+window-rule {
+    match app-id="^mpv$"
+    open-floating true
+}
+
+// @id=wr_1771683313921015344 @name=wihotspot
+window-rule {
+    match app-id="^wihotspot$"
+    open-floating true
+}
+
+// @id=wr_1771686095104192515 @name=net.lutris.Lutris
+window-rule {
+    match app-id="^net.lutris.Lutris$"
+    open-maximized true
+}
+
+// @id=wr_1771686195176351019 @name=chromium-browser
+window-rule {
+    match app-id="^chromium-browser$"
+    open-maximized true
+}
+
+// @id=wr_1771688089820981388 @name=org.gnome.Nautilus
+window-rule {
+    match app-id="^org.gnome.Nautilus$"
+    open-maximized true
+}
+
+// @id=wr_1771750739180906735 @name=float-kitty
+window-rule {
+    match app-id="^float-kitty$"
+    default-column-width { proportion 0.8; }
+    default-window-height { proportion 0.75; }
+}
+
+// @id=wr_1771825801889813943 @name=float-btop
+window-rule {
+    match app-id="^float-btop$"
+    open-floating true
+    default-column-width { proportion 0.8; }
+    default-window-height { proportion 0.9; }
+}
+
+// @id=wr_1772010137423565843 @name=yazi
+window-rule {
+    match app-id="^yazi$"
+    open-maximized true
+}
+
+// @id=wr_1772176840979230735 @name=kitty
+window-rule {
+    match app-id="^kitty$"
+    open-on-workspace "code"
+}

@@ -10,6 +10,7 @@ return {
       library = {
         -- Load luvit types when the `vim.uv` word is found
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        { path = 'nvim-lspconfig', words = { 'lspconfig' } },
       },
     },
   },
@@ -71,14 +72,22 @@ return {
           --  For example, in C this would take you to the header.
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-          map('grs', function()
+          map('grf', function()
+            vim.lsp.buf.code_action {
+              context = {
+                only = { 'quickfix' },
+              },
+            }
+          end, 'LSP Quickfix Codeactions')
+
+          map('grm', function()
             vim.lsp.buf.code_action {
               apply = true,
               context = {
-                only = { 'source.organizeImports' },
+                only = { 'source.addMissingImports' },
               },
             }
-          end, 'Organize and [S]ort Imports')
+          end, 'Add Missing Imports')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
@@ -153,6 +162,9 @@ return {
           end
         end,
       })
+
+      -- Set log level to off for performance reasons
+      vim.lsp.set_log_level 'off'
 
       -- Diagnostic Config
       -- See :help vim.diagnostic.Opts

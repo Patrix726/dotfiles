@@ -22,10 +22,6 @@ return {
   },
   { 'wakatime/vim-wakatime', lazy = false },
   {
-    'ThePrimeagen/vim-be-good',
-    cmd = 'VimBeGood',
-  },
-  {
     'godlygeek/tabular',
     cmd = 'Tabularize',
     keys = {
