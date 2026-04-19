@@ -37,6 +37,9 @@ return {
     settings = {
       typescript = {},
     },
+    capabilities = {
+      semanticTokensProvider = nil,
+    },
     experimental = {
       completion = {
         enableServerSideFuzzyMatch = true,
@@ -45,7 +48,6 @@ return {
     },
   },
   tsgo = {},
-  postgres_lsp = {},
   -- ts_go_ls = {
   --   cmd = { vim.loop.os_homedir() .. '/dev/typescript-go/built/local/tsgo', 'lsp', '-stdio' },
   --   filetypes = {
@@ -79,17 +81,19 @@ return {
   },
   prismals = {},
   tinymist = {},
+  rust_analyzer = {},
 
   -- Formatters
   prettierd = {},
   prettier = {},
+  biome = {},
   isort = {},
   black = {},
   stylua = {},
 
   -- Linters
-  eslint_d = {},
-  eslint = {},
+  -- eslint_d = {},
+  -- eslint = {},
   markdownlint = {},
 
   -- DAP

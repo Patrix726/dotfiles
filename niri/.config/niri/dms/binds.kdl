@@ -137,7 +137,6 @@ binds {
     Print { screenshot; }
     XF86Launch1 { screenshot; }
     Super+Shift+BackSpace { quit; }
-    Alt+Ctrl+T hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
     Super+A repeat=false hotkey-overlay-title="Apps mode" { spawn "wlr-which-key" "-k" "a"; }
     Super+B hotkey-overlay-title="Firefox" { spawn "firefox"; }
     Super+E hotkey-overlay-title="Nautilus" { spawn "nautilus"; }
@@ -145,7 +144,7 @@ binds {
     Super+Return hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
     Super+Shift+E hotkey-overlay-title="Yazi" { spawn "kitty" "--class" "yazi" "yazi"; }
     Super+Shift+M hotkey-overlay-title="Btop" { spawn "kitty" "--class" "float-btop" "btop"; }
-    Super+Shift+Return { spawn "kitty" "--class" "float-kitty"; }
+    Super+Shift+Return hotkey-overlay-title="Float Kitty" { spawn "kitty" "--class" "float-kitty" "--config" "/home/patrix/.config/kitty/kitty-float.conf"; }
     Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Super+O { toggle-overview; }

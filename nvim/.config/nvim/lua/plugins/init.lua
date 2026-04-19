@@ -6,13 +6,13 @@ return {
   { 'NMAC427/guess-indent.nvim', opts = {} },
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    ft = { 'markdown', 'Avante', 'opencode_output' },
+    ft = { 'markdown', 'opencode_output' },
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
       completions = { blink = { enabled = true } },
-      file_types = { 'markdown', 'Avante', 'opencode_output' },
+      file_types = { 'markdown', 'opencode_output' },
     },
   },
   {
@@ -20,14 +20,7 @@ return {
     event = 'BufReadPost',
     opts = {},
   },
-  { 'wakatime/vim-wakatime', lazy = false },
-  {
-    'godlygeek/tabular',
-    cmd = 'Tabularize',
-    keys = {
-      { '<leader>cf', mode = { 'n', 'v' }, '<cmd>Tabularize multiple_spaces<CR>', desc = 'Tabularize paragraph into columns based on multiple space' },
-    },
-  },
+  { 'wakatime/vim-wakatime', event = 'VeryLazy' },
   { 'dmmulroy/ts-error-translator.nvim', opts = {}, ft = { 'typescript', 'typescriptreact' } },
   {
     'unblevable/quick-scope',
@@ -35,17 +28,5 @@ return {
       require 'configs.quick-scope'
     end,
     config = function() end,
-  },
-  {
-    'm4xshen/hardtime.nvim',
-    dependencies = { 'MunifTanjim/nui.nvim' },
-    opts = {
-      disabled_filetypes = {
-        lazy = false, -- Enable Hardtime in lazy filetype
-        ['dapui*'] = false, -- Enable Hardtime in filetype starting with dapui
-      },
-      enabled = false,
-    },
-    lazy = true,
   },
 }

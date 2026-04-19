@@ -1,2 +1,3 @@
-workspace "browser"
-workspace "code"
+workspace "1.code"
+workspace "2.browser"
+workspace "3.chat"

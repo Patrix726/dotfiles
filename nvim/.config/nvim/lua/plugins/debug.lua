@@ -1,7 +1,7 @@
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
-  enabled = true,
+  enabled = false,
   -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Installs the debug adapters for you

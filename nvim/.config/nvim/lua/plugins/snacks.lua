@@ -41,11 +41,12 @@ return {
         },
       },
     },
+    image = {},
     ---@type table<string, snacks.win.Config>
     styles = {
       scratch = {
-        width = 120,
-        height = 30,
+        width = 160,
+        height = 36,
         bo = { buftype = '', buflisted = false, bufhidden = 'hide', swapfile = false },
         minimal = false,
         noautocmd = false,
@@ -88,11 +89,11 @@ return {
       },
     },
     notifier = {}, -- Snacks notification
-    indent = {}, -- Visual indent lines to see the scope you are in
+    -- indent = {}, -- Visual indent lines to see the scope you are in
     terminal = {},
     scratch = {
       ft = function()
-        if vim.bo.buftype == '' and vim.bo.filetype == 'lua' and vim.bo.filetype == 'python' and vim.bo.filetype == 'javascript' then
+        if vim.bo.buftype == '' and vim.bo.filetype == 'lua' then
           return vim.bo.filetype
         end
         return 'markdown'
@@ -100,7 +101,7 @@ return {
       filekey = {
         cwd = true,
         branch = false,
-        count = false,
+        count = true,
       },
       win_by_ft = {
         lua = {
@@ -160,7 +161,14 @@ return {
       end,
       desc = 'Snacks: [S]earch [H]elp',
     },
-
+    {
+      '_',
+      function()
+        Snacks.scratch.open()
+      end,
+      mode = 'n',
+      desc = 'Snacks: Toggle scratch buffer instance',
+    },
     {
       '<leader>ts',
       function()
@@ -170,9 +178,19 @@ return {
       desc = 'Snacks: Toggle scratch buffer instance',
     },
     {
-      '<leader>sS',
+      '<leader>ss',
       function()
-        Snacks.scratch.select()
+        Snacks.picker.scratch {
+          win = {
+            input = {
+              keys = {
+                ['<c-x>'] = { 'scratch_delete', mode = { 'n', 'i' } },
+                ['<c-n>'] = { 'list_down', mode = { 'n', 'i' } },
+                ['<cr>'] = { 'scratch_new', mode = { 'n', 'i' } },
+              },
+            },
+          },
+        }
       end,
       mode = 'n',
       desc = 'Snacks: Select from scratch instances',
@@ -192,7 +210,7 @@ return {
     --   desc = 'Snacks: [S]earch [F]iles',
     -- },
     {
-      '<leader>ss',
+      '<leader>sS',
       function()
         Snacks.picker.pickers()
       end,
@@ -260,13 +278,6 @@ return {
         Snacks.picker.grep_buffers()
       end,
       desc = 'Snacks: [S]earch [/] in Open Files',
-    },
-    {
-      '<leader>st',
-      function()
-        Snacks.picker.todo_comments()
-      end,
-      desc = 'Snacks: [S]earch [T]odo comments',
     },
     {
       '<leader>sn',

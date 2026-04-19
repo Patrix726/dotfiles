@@ -22,7 +22,7 @@ return {
       {
         '<leader>f',
         function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
+          require('conform').format { async = true, lsp_format = 'never' }
         end,
         mode = '',
         desc = '[F]ormat buffer',
@@ -39,11 +39,11 @@ return {
           return nil
         else
           if not vim.b[bufnr].disable_autosort and not vim.g.disable_autosort then
-            organize_imports()
+            -- organize_imports()
           end
           return {
             timeout_ms = 1000,
-            lsp_format = 'fallback',
+            lsp_format = 'never',
           }
         end
       end,
@@ -59,24 +59,24 @@ return {
         go = { 'goimports' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         python = { 'isort', 'black', stop_after_first = false },
-        svelte = { 'prettierd', 'prettier', stop_after_first = true },
-        javascript = { 'prettierd', 'prettier', stop_after_first = true },
-        typescript = { 'prettierd', 'prettier', stop_after_first = true },
-        javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-        typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-        json = { 'prettierd', 'prettier', stop_after_first = true },
-        jsonc = { 'prettierd', 'prettier', stop_after_first = true },
-        angular = { 'prettierd', 'prettier', stop_after_first = true },
-        css = { 'prettierd', 'prettier', stop_after_first = true },
+        svelte = { 'biome', 'biome-organize-imports' },
+        javascript = { 'biome', 'biome-organize-imports' },
+        typescript = { 'biome', 'biome-organize-imports' },
+        javascriptreact = { 'biome', 'biome-organize-imports' },
+        typescriptreact = { 'biome', 'biome-organize-imports' },
+        json = { 'biome', 'biome-organize-imports' },
+        jsonc = { 'biome', 'biome-organize-imports' },
+        css = { 'biome', 'biome-organize-imports' },
+        graphql = { 'biome', 'biome-organize-imports' },
+        html = { 'biome', 'biome-organize-imports' },
+        vue = { 'biome', 'biome-organize-imports' },
+        toml = { 'biome', 'biome-organize-imports' },
         flow = { 'prettierd', 'prettier', stop_after_first = true },
-        graphql = { 'prettierd', 'prettier', stop_after_first = true },
-        html = { 'prettierd', 'prettier', stop_after_first = true },
+        angular = { 'prettierd', 'prettier', stop_after_first = true },
         less = { 'prettierd', 'prettier', stop_after_first = true },
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         scss = { 'prettierd', 'prettier', stop_after_first = true },
-        vue = { 'prettierd', 'prettier', stop_after_first = true },
         yaml = { 'prettierd', 'prettier', stop_after_first = true },
-        toml = { 'prettierd', 'prettier', stop_after_first = true },
         http = { 'kulala-fmt' },
       },
     },

@@ -6,9 +6,9 @@ local usercmd = vim.api.nvim_create_user_command
 autocmd('LspAttach', {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client:supports_method 'textDocument/foldingRange' then
+    if client and client:supports_method 'textDocument/foldingRange' then
       local win = vim.api.nvim_get_current_win()
-      vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+      vim.api.nvim_set_option_value('foldexpr', 'v:lua.vim.lsp.foldexpr()', { win = win })
     end
   end,
 })
@@ -62,10 +62,11 @@ autocmd('FileType', {
 
 -- Remove the Enter remap in the quickfix window
 autocmd('BufReadPost', {
+  pattern = 'quickfix',
   desc = 'Remap enter to default in quickfix windows',
   group = vim.api.nvim_create_augroup('quickfix-remap', { clear = true }),
   callback = function()
-    vim.cmd [[autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>]]
+    vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '<CR>', { noremap = true, silent = true })
   end,
 })
 

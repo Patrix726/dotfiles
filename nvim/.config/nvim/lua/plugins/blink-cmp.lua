@@ -131,7 +131,11 @@ return {
               return ctx.trigger.initial_kind ~= 'trigger_character'
             end,
           },
+          -- dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
         },
+        -- per_filetype = {
+        --   sql = { 'snippets', 'dadbod', 'buffer' },
+        -- },
       },
 
       snippets = { preset = 'luasnip' },

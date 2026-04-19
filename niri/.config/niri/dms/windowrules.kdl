@@ -6,13 +6,14 @@ window-rule {
     match app-id="^org.mozilla.firefox$"
     open-maximized true
     open-focused true
-    open-on-workspace "browser"
+    open-on-workspace "2.browser"
 }
 
 // @id=wr_1771683114972844095 @name=org.telegram.desktop
 window-rule {
     match app-id="^org.telegram.desktop$"
     open-maximized true
+    open-on-workspace "3.chat"
 }
 
 // @id=wr_1771683187675577458 @name=mpv
@@ -37,6 +38,7 @@ window-rule {
 window-rule {
     match app-id="^chromium-browser$"
     open-maximized true
+    open-on-workspace "2.browser"
 }
 
 // @id=wr_1771688089820981388 @name=org.gnome.Nautilus
@@ -69,5 +71,19 @@ window-rule {
 // @id=wr_1772176840979230735 @name=kitty
 window-rule {
     match app-id="^kitty$"
-    open-on-workspace "code"
+    open-on-workspace "1.code"
+}
+
+// @id=wr_1774283577672967430 @name=Slack
+window-rule {
+    match app-id="^Slack$"
+    open-maximized true
+    open-on-workspace "3.chat"
+}
+
+// @id=wr_1774327666212351675 @name=ONLYOFFICE
+window-rule {
+    match app-id="^ONLYOFFICE$"
+    open-maximized true
+    open-on-workspace "3.chat"
 }

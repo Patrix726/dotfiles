@@ -76,8 +76,6 @@ vim.o.foldlevel = 99
 vim.o.foldmethod = 'expr'
 vim.o.foldtext = ''
 vim.opt.foldcolumn = '1'
-vim.opt.fillchars:append { fold = ' ' }
-vim.o.foldmethod = 'expr'
 
 -- Default to treesitter folding
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

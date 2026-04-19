@@ -7,4 +7,11 @@ return {
       width = 30,
     },
   },
+  keys = {
+    {
+      '<leader>gd',
+      '<cmd>CodeDiff<cr>',
+      desc = 'Git Diff',
+    },
+  },
 }

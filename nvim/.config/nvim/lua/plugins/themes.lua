@@ -1,55 +1,52 @@
 return {
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'catppuccin/nvim', name = 'catppuccin', event = 'VeryLazy' },
   {
     'decaycs/decay.nvim',
     name = 'decay',
-    lazy = false,
-    priority = 1000,
+    event = 'VeryLazy',
     config = function() end,
   },
   {
     'navarasu/onedark.nvim',
-    priority = 1000, -- make sure to load this before all the other start plugins
+    event = 'VeryLazy',
     config = function() end,
   },
   {
     'projekt0n/github-nvim-theme',
     event = 'VeryLazy',
-    priority = 1000,
     config = function() end,
   },
   {
     'stevedylandev/ansi-nvim',
-    lazy = false,
-    priority = 1000,
+    event = 'VeryLazy',
     config = function() end,
   },
   {
     'Yazeed1s/oh-lucy.nvim',
-    lazy = false,
-    priority = 1000,
     config = function() end,
+    event = 'VeryLazy',
   },
-  { 'ellisonleao/gruvbox.nvim', priority = 1000, config = function() end },
-  { 'lunarvim/synthwave84.nvim', priority = 1000, config = function() end },
+  { 'ellisonleao/gruvbox.nvim', config = function() end, event = 'VeryLazy' },
+  { 'lunarvim/synthwave84.nvim', config = function() end, event = 'VeryLazy' },
   {
     'AlexvZyl/nordic.nvim',
-    lazy = false,
-    priority = 1000,
+    event = 'VeryLazy',
     config = function() end,
   },
   {
     'rose-pine/neovim',
     name = 'rose-pine',
+    event = 'VeryLazy',
     config = function() end,
   },
   {
     'nyoom-engineering/oxocarbon.nvim',
+    event = 'VeryLazy',
     config = function() end,
   },
   {
     'folke/tokyonight.nvim',
-    priority = 1000,
+    event = 'VeryLazy',
     opts = {
       styles = {
         comments = { italic = false }, -- Disable italics in comments
