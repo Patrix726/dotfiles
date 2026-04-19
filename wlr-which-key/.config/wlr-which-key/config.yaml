@@ -38,6 +38,9 @@ menu:
       - key: "m"
         desc: MPV
         cmd: mpv --player-operation-mode=pseudo-gui
+      - key: "r"
+        desc: Record
+        cmd: screenrecord.sh
       - key: "q"
         desc: Qbittorrent
         cmd: qbittorrent
