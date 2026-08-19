@@ -6,10 +6,6 @@ SESH_CONFIG="$HOME/.config/sesh/sesh.toml"
 HISTORY_DIR="$HOME/.local/state/zellij"
 HISTORY_FILE="$HISTORY_DIR/session-history"
 
-zellij_switch() {
-    zellij pipe --plugin "$HOME/.config/zellij/plugins/zellij-switch.wasm" "$@"
-}
-
 # -----------------------------
 # Extract layout from sesh.toml
 # -----------------------------
@@ -115,6 +111,10 @@ record_session_switch() {
 # -----------------------------
 # FZF Selection
 # -----------------------------
+if [[ -n "$ZELLIJ" && -z "$1" ]]; then
+    zellij action switch-mode locked
+fi
+
 if [ -n "$1" ]; then
     SESS="$1"
 else
@@ -128,6 +128,10 @@ else
             --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -L -H -d 5 -t d -E .Trash -E .git -E .cache . ~)' \
             --bind "ctrl-d:execute(zellij kill-session '{}')+reload(list_zellij_sessions)" \
         --bind "ctrl-e:execute(zoxide remove '{}')+reload(list_zoxide_dirs)")
+fi
+
+if [[ -n "$ZELLIJ" && -z "$1" ]]; then
+    zellij action switch-mode tmux
 fi
 
 # -----------------------------
@@ -153,13 +157,13 @@ if [[ -n $SESS ]]; then
 
     if [[ -n "$ZELLIJ" ]]; then
         if is_existing_session "$session_name"; then
-            zellij_switch -- "--session $(printf %q "$session_name") --layout $layout"
+            zellij action switch-session "$session_name"
         else
             if is_directory "$SESS"; then
                 zoxide add "$SESS"
-                zellij_switch -- "--session $(printf %q "$session_name") --cwd $(printf %q "$SESS") --layout $layout"
+                zellij action switch-session "$session_name" --cwd "$SESS" --layout "$layout"
             else
-                zellij_switch -- "--session $(printf %q "$session_name") --layout $layout"
+                zellij action switch-session "$session_name" --layout "$layout"
             fi
         fi
     else

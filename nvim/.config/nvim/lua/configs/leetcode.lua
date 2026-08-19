@@ -23,7 +23,7 @@ local format_commit_message = function(filename)
 end
 
 M.move_and_git_commit = function()
-  local destination_path = vim.fn.expand '$HOME/Documents/Code/CPD/Leetcode'
+  local destination_path = vim.fn.expand '$HOME/Documents/code/cpd/Leetcode'
   local current_file = vim.fn.expand '%:p' -- full path to the current file
 
   if current_file == '' then

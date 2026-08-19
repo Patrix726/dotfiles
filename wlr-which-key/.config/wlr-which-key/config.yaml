@@ -26,21 +26,24 @@ inhibit_compositor_keyboard_shortcuts: true
 auto_kbd_layout: true
 
 menu:
+  - key: "s"
+    desc: Scripts
+    submenu:
+      - key: "r"
+        desc: Record
+        cmd: screenrecord.sh
+      - key: "p"
+        desc: Phone screen copy
+        cmd: scrcpy --turn-screen-off --stay-awake
   - key: "a"
     desc: Apps
     submenu:
       - key: "c"
         desc: Chromium
         cmd: chromium-browser
-      - key: "C"
-        desc: VSCode
-        cmd: code --ozone-platform-hint=wayland --disable-gpu
       - key: "m"
         desc: MPV
         cmd: mpv --player-operation-mode=pseudo-gui
-      - key: "r"
-        desc: Record
-        cmd: screenrecord.sh
       - key: "q"
         desc: Qbittorrent
         cmd: qbittorrent
@@ -53,6 +56,9 @@ menu:
       - key: "t"
         desc: Telegram
         cmd: Telegram
+      - key: "T"
+        desc: Thunderbird
+        cmd: thunderbird
       - key: "v"
         desc: Vpn
         cmd: protonvpn-app
