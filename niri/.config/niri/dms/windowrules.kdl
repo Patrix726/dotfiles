@@ -91,3 +91,30 @@ window-rule {
 window-rule {
     match app-id="^localsend_app$"
 }
+
+// @id=wr_1783414417301568957 @name=float-ttp
+window-rule {
+    match app-id="^float-ttp$"
+    open-floating true
+    default-column-width { proportion 0.33; }
+    default-window-height { proportion 0.33; }
+}
+
+// @id=wr_1785670471436886080 @name=scrcpy
+window-rule {
+    match app-id="^scrcpy$"
+    default-column-width { fixed 460; }
+}
+
+// @id=wr_1786186832095698857 @name=Picture-in-Picture
+window-rule {
+    match app-id="Picture-in-Picture" is-floating=true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 600; }
+}
+
+// @id=wr_1787119631994619554 @name=net.thunderbird.Thunderbird
+window-rule {
+    match app-id="^net.thunderbird.Thunderbird$"
+    open-on-workspace "3.chat"
+}

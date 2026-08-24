@@ -25,4 +25,7 @@ require 'lazy-plugins'
 -- [[ Basic Keymaps ]]
 require 'keymaps'
 
+-- [[ AI workflow ]]
+require 'configs.ai'
+
 -- vim: ts=2 sts=2 sw=2 et

@@ -12,4 +12,4 @@ ohmyzsh/ohmyzsh path:lib   # load OMZ's library
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/mise kind:defer
 ohmyzsh/ohmyzsh path:plugins/sudo
-ohmyzsh/ohmyzsh path:plugins/docker
+# ohmyzsh/ohmyzsh path:plugins/docker

@@ -86,3 +86,17 @@ niri/.config/niri/dms/colors.kdl
 mpv/.config/mpv/playlists/
 mpv/.config/mpv/persistent_config.json
 hyde/.local/share/themes/Wallbash-Gtk/
+nvim/.config/nvim/.cortexkit/.gitignore
+hyde/.config/gtk-3.0/assets
+hyde/.config/gtk-3.0/dank-colors.css
+hyde/.config/hypr/hyprland/colors.conf
+hyde/.config/hypr/hyprlock.conf
+hyde/.config/qt5ct/colors/matugen.conf
+hyde/.config/qt6ct/colors/matugen.conf
+hyde/.local/share/themes/Catppuccin-Latte/metacity-1
+hyde/.local/share/themes/Tokyo-Night/gtk-4.0/dank-colors.css
+hyde/.local/share/themes/Tokyo-Night/gtk-4.0/gtk.css
+kitty/.config/kitty/dank-tabs.conf
+kitty/.config/kitty/dank-theme.conf
+niri/.config/niri/dms/alttab.kdl
+niri/.config/niri/dms/layout.kdl

@@ -95,12 +95,12 @@ map('n', '<leader>gp', '`[v`]', { desc = 'Select pasted text' })
 map('n', '[/', '[<c-i>', { desc = 'Get first occurence of word' })
 
 -- Go to next and previous error
-map('n', ']e', function()
-  vim.diagnostic.jump { severity = vim.diagnostic.severity.ERROR, wrap = true, float = true, count = 1 }
-end, { desc = 'Error forward' })
-map('n', '[e', function()
-  vim.diagnostic.jump { severity = vim.diagnostic.severity.ERROR, wrap = true, float = true, count = -1 }
-end, { desc = 'Error backward' })
+-- map('n', ']e', function()
+--   vim.diagnostic.jump { severity = vim.diagnostic.severity.ERROR, wrap = true, float = true, count = 1 }
+-- end, { desc = 'Error forward' })
+-- map('n', '[e', function()
+--   vim.diagnostic.jump { severity = vim.diagnostic.severity.ERROR, wrap = true, float = true, count = -1 }
+-- end, { desc = 'Error backward' })
 
 -- Navigate to and from quotation marks of all kinds
 map({ 'n', 'o', 'x' }, "]'", [[/\v("|'|`)[^"'`]*\1<CR><cmd>nohlsearch<CR>]], { desc = 'Jump forwards to the next pair of quotes' })

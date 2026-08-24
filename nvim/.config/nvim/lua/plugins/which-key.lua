@@ -45,13 +45,13 @@ return {
 
       -- Document existing key chains
       spec = {
-        { '<leader>a', group = 'Fl[a]sh' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>c', group = '[C]ode' },
         { '<leader>k', group = '[K]ulala | Chec[k]mate' },
         { '<leader>os', group = '[S]ession' },
         { '<leader>og', group = '[G]olf' },
-        { '<leader>o', group = '[O]pencode' },
+        { '<leader>o', group = '[O]ther' },
         { '<leader>g', group = '[G]it' },
         { '<leader>l', group = '[L]eetcode' },
         { '<leader>y', group = '[Y]azi' },

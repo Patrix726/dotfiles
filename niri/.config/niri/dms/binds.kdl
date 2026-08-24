@@ -6,18 +6,16 @@ binds {
     F12 hotkey-overlay-title="Volume Up (5%)" { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
     Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
     Mod+Comma hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
+    Mod+Semicolon repeat=false hotkey-overlay-title="Spotlight Bar: Toggle" { spawn "dms" "ipc" "call" "spotlight-bar" "toggle"; }
     Mod+V hotkey-overlay-title="Clipboard Manager" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
     Mod+Y hotkey-overlay-title="Browse Wallpapers" { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
     Super+Alt+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
     Super+Alt+P hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
     Super+BackSpace hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
     Super+D hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-    Super+N allow-when-locked=true { spawn "bash" "-c" "mediactl.sh next"; }
     Super+Shift+BracketLeft hotkey-overlay-title="Wallpaper: Previous" { spawn "dms" "ipc" "call" "wallpaper" "prev"; }
     Super+Shift+BracketRight hotkey-overlay-title="Wallpaper: Next" { spawn "dms" "ipc" "call" "wallpaper" "next"; }
-    Super+Shift+N allow-when-locked=true { spawn "bash" "-c" "mediactl.sh previous"; }
     Super+W hotkey-overlay-title="Bar: Toggle (Primary)" { spawn "dms" "ipc" "call" "bar" "toggle" "index" "0"; }
-    Super+space allow-when-locked=true hotkey-overlay-title="Play/Pause" { spawn "bash" "-c" "mediactl.sh playpause"; }
     XF86AudioLowerVolume hotkey-overlay-title="Volume Down (5%)" { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
     XF86AudioMicMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
     XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
@@ -70,6 +68,7 @@ binds {
     Alt+F4 { close-window; }
     Alt+Print { screenshot-window; }
     Alt+XF86Launch1 { screenshot-window; }
+    Mod+Apostrophe hotkey-overlay-title="Expand to Available Width" { expand-column-to-available-width; }
     Mod+BracketLeft { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
     Mod+C { center-column; }
@@ -137,14 +136,20 @@ binds {
     Print { screenshot; }
     XF86Launch1 { screenshot; }
     Super+Shift+BackSpace { quit; }
+    Alt+space repeat=false hotkey-overlay-title="Toggle Handy Recoring" { spawn "pkill" "-USR2" "-n" "handy"; }
+    Mod+S hotkey-overlay-title="Script mode" { spawn "wlr-which-key" "-k" "s"; }
     Super+A repeat=false hotkey-overlay-title="Apps mode" { spawn "wlr-which-key" "-k" "a"; }
     Super+B hotkey-overlay-title="Firefox" { spawn "firefox"; }
     Super+E hotkey-overlay-title="Nautilus" { spawn "nautilus"; }
     Super+M hotkey-overlay-title="RMPC" { spawn "kitty" "--class" "rmpc" "rmpc"; }
+    Super+N allow-when-locked=true { spawn "bash" "-c" "mediactl.sh next"; }
     Super+Return hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
     Super+Shift+E hotkey-overlay-title="Yazi" { spawn "kitty" "--class" "yazi" "yazi"; }
     Super+Shift+M hotkey-overlay-title="Btop" { spawn "kitty" "--class" "float-btop" "btop"; }
+    Super+Shift+N allow-when-locked=true { spawn "bash" "-c" "mediactl.sh previous"; }
     Super+Shift+Return hotkey-overlay-title="Float Kitty" { spawn "kitty" "--class" "float-kitty" "--config" "/home/patrix/.config/kitty/kitty-float.conf"; }
+    Super+Shift+T hotkey-overlay-title="Floating typing test" { spawn "kitty" "--class" "float-ttp" "--config" "/home/patrix/.config/kitty/kitty-float.conf" "tt" "-n" "100" "-blockcursor"; }
+    Super+space hotkey-overlay-title="Play/Pause" allow-when-locked=true { spawn "bash" "-c" "mediactl.sh playpause"; }
     Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Super+O { toggle-overview; }

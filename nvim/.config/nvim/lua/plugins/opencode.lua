@@ -1,6 +1,6 @@
 return {
   'NickvanDyke/opencode.nvim',
-  enabled = true,
+  enabled = false,
   dependencies = { 'folke/snacks.nvim' },
   config = function()
     vim.g.opencode_opts = {}

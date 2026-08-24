@@ -12,7 +12,7 @@ return {
 
     ---@type lc.storage
     storage = {
-      home = '$HOME/Documents/Code/CPD' .. '/Leetcode/attempt',
+      home = '$HOME/Documents/code/cpd' .. '/Leetcode/attempt',
       cache = vim.fn.stdpath 'cache' .. '/leetcode',
     },
 

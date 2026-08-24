@@ -5,6 +5,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_BIN_DIR="$HOME/.local/bin"
 
+export JAVA_HOME="/usr/lib/jvm/java-17-temurin-jdk"
 export ANDROID_HOME="$XDG_DATA_HOME/android/sdk"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
@@ -26,11 +27,11 @@ path+=(
 	$ANDROID_HOME/build-tools/34.0.0
 	$GOPATH/bin
 	$XDG_DATA_HOME/spicetify
-	$HOME/Documents/Scripts
+	$HOME/Documents/scripts
+	$HOME/.pub-cache/bin
 	$XDG_BIN_DIR
 	# $XDG_BIN_DIR/opencode/bin
 	$XDG_DATA_HOME/bin
-	$XDG_DATA_HOME/bin/my-scripts
 	$XDG_DATA_HOME/pnpm
 	$XDG_DATA_HOME/pnpm/bin
 	$CARGO_HOME/bin

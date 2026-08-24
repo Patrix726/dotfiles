@@ -79,10 +79,10 @@ layout {
         }
         children
     }
-    tab focus=true {
+    tab {
         pane command="nvim"
     }
-    tab {
+    tab focus=true {
         pane command="opencode" {
             args "." "--port"
         } 
